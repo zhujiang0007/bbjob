@@ -1,8 +1,5 @@
 package com.rundatop.core.utils;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -17,11 +14,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.security.Key;
@@ -33,8 +28,6 @@ import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -44,26 +37,17 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.rundatop.core.exception.BizRuntimeException;
+
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
-import com.rundatop.core.exception.BizRuntimeException;
 
 /**
  * 类功能说明：通用工具箱
@@ -712,287 +696,7 @@ public class Utils {
 		return df.format(num);
 	}
 
-	// public static void uploadFile(String url, Integer port, String username,
-	// String password, String path, String filename, String localfilename) {
-	// Utils x = new Utils();
-	// FTPUtil fu = x.new FTPUtil();
-	// fu.connectServer(url, port, username, password, path);
-	// fu.upload(localfilename, filename);
-	// fu.closeConnect();
-	// }
-	//
-	// public static void uploadFile(String url, Integer port, String username,
-	// String password, String path, String filename, File file) {
-	// Utils x = new Utils();
-	// FTPUtil fu = x.new FTPUtil();
-	// fu.connectServer(url, port, username, password, path);
-	// fu.upload(file, filename);
-	// fu.closeConnect();
-	// }
-	//
-	// public static void uploadFile(String url, Integer port, String username,
-	// String password, String path, String filename, InputStream is) {
-	// Utils x = new Utils();
-	// FTPUtil fu = x.new FTPUtil();
-	// fu.connectServer(url, port, username, password, path);
-	// fu.upload(is, filename);
-	// fu.closeConnect();
-	// }
-
-	// class FTPUtil {
-	//
-	// String localfilename;
-	//
-	// String remotefilename;
-	//
-	// FtpClient ftpClient;
-	//
-	// public FTPUtil() {
-	// }
-	//
-	// public void connectServer(String ip, int port, String user,
-	// String password, String path) {
-	//
-	// try {
-	// ftpClient = new FtpClient();
-	// ftpClient.openServer(ip, port);
-	// ftpClient.login(user, password);
-	//
-	// if (path.length() != 0) {
-	// // ftpClient.sendServer("MKD " + path + "/r/n");
-	// createDir(path);
-	// ftpClient.cd(path);
-	// }
-	// ftpClient.binary();
-	// } catch (IOException ex) {
-	// throw new BizRuntimeException(ex);
-	// }
-	// }
-	//
-	// /**
-	// * 在当前目录下创建文件夹
-	// *
-	// * @param dir
-	// * @return
-	// * @throws Exception
-	// */
-	// private boolean createDir(String dir) {
-	// try {
-	// ftpClient.ascii();
-	// StringTokenizer s = new StringTokenizer(dir, "/"); // sign
-	// s.countTokens();
-	// String pathName = ftpClient.pwd();
-	// while (s.hasMoreElements()) {
-	// pathName = pathName + "/" + (String) s.nextElement();
-	// try {
-	// ftpClient.sendServer("MKD " + pathName + "\r\n");
-	// } catch (Exception e) {
-	// e = null;
-	// return false;
-	// }
-	// int res = ftpClient.readServerResponse();
-	// System.out.println(res);
-	// }
-	// ftpClient.binary();
-	// return true;
-	// } catch (IOException e1) {
-	// e1.printStackTrace();
-	// return false;
-	// }
-	// }
-	//
-	// public void closeConnect() {
-	// try {
-	// ftpClient.closeServer();
-	// } catch (IOException ex) {
-	// throw new BizRuntimeException(ex);
-	// }
-	// }
-	//
-	// public void upload(String localfileName, String remotefileName) {
-	//
-	// this.localfilename = localfileName;// "D://1.txt";
-	// this.remotefilename = remotefileName;// "test2.txt";
-	//
-	// try {
-	// TelnetOutputStream os = ftpClient.put(this.remotefilename);
-	// java.io.File file_in = new java.io.File(this.localfilename);
-	// FileInputStream is = new FileInputStream(file_in);
-	// byte[] bytes = new byte[1024];
-	// int c;
-	// while ((c = is.read(bytes)) != -1) {
-	// os.write(bytes, 0, c);
-	// }
-	//
-	// is.close();
-	// os.close();
-	// } catch (IOException ex) {
-	// throw new BizRuntimeException(ex);
-	// }
-	// }
-	//
-	// public void upload(InputStream is, String remotefileName) {
-	// this.remotefilename = remotefileName;// "test2.txt";
-	// try {
-	// TelnetOutputStream os = ftpClient.put(this.remotefilename);
-	// byte[] bytes = new byte[1024];
-	// int c;
-	// while ((c = is.read(bytes)) != -1) {
-	// os.write(bytes, 0, c);
-	// }
-	// is.close();
-	// os.close();
-	// } catch (IOException ex) {
-	// throw new BizRuntimeException(ex);
-	// }
-	// }
-	//
-	// public void upload(File file, String remotefileName) {
-	//
-	// this.localfilename = file.getAbsolutePath();// "D://1.txt";
-	// this.remotefilename = remotefileName;// "test2.txt";
-	//
-	// try {
-	// TelnetOutputStream os = ftpClient.put(this.remotefilename);
-	// FileInputStream is = new FileInputStream(file);
-	// byte[] bytes = new byte[1024];
-	// int c;
-	// while ((c = is.read(bytes)) != -1) {
-	// os.write(bytes, 0, c);
-	// }
-	//
-	// is.close();
-	// os.close();
-	// } catch (IOException ex) {
-	// throw new RuntimeException(ex);
-	// }
-	// }
-	//
-	// public void download() {
-	//
-	// try {
-	// TelnetInputStream is = ftpClient.get(this.remotefilename);
-	// java.io.File file_in = new java.io.File(this.localfilename);
-	// FileOutputStream os = new FileOutputStream(file_in);
-	// byte[] bytes = new byte[1024];
-	// int c;
-	// while ((c = is.read(bytes)) != -1) {
-	// // System.out.println((char)is.read());
-	// // System.out.println(file_in);
-	// os.write(bytes, 0, c);
-	// }
-	// os.close();
-	// is.close();
-	// } catch (IOException ex) {
-	// throw new BizRuntimeException(ex);
-	// }
-	// }
-	//
-	// public void download(String remotePath, String remoteFile,
-	// String localFile) {
-	//
-	// try {
-	// if (remotePath.length() != 0)
-	// ftpClient.cd(remotePath);
-	// TelnetInputStream is = ftpClient.get(remoteFile);
-	// java.io.File file_in = new java.io.File(localFile);
-	// FileOutputStream os = new FileOutputStream(file_in);
-	// byte[] bytes = new byte[1024];
-	// int c;
-	// while ((c = is.read(bytes)) != -1) {
-	// // System.out.println((char)is.read());
-	// // System.out.println(file_in);
-	// os.write(bytes, 0, c);
-	// }
-	//
-	// os.close();
-	// is.close();
-	// } catch (IOException ex) {
-	//
-	// throw new BizRuntimeException(ex);
-	// }
-	// }
-	//
-	// public void download(String remoteFile, String localFile) {
-	//
-	// try {
-	// TelnetInputStream is = ftpClient.get(remoteFile);
-	// java.io.File file_in = new java.io.File(localFile);
-	// FileOutputStream os = new FileOutputStream(file_in);
-	// byte[] bytes = new byte[1024];
-	// int c;
-	// while ((c = is.read(bytes)) != -1) {
-	//
-	// os.write(bytes, 0, c);
-	// }
-	//
-	// os.close();
-	// is.close();
-	// } catch (IOException ex) {
-	// throw new BizRuntimeException(ex);
-	// }
-	// }
-	//
-	// public InputStream download(String remoteFile) {
-	//
-	// try {
-	// TelnetInputStream is = ftpClient.get(remoteFile);
-	// return is;
-	// } catch (IOException ex) {
-	// throw new BizRuntimeException(ex);
-	// }
-	// }
-	// }
-
-	public String getQRCode(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		String link = request.getParameter("linkUrl")+"&ajax=1";
-		MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-		Map<EncodeHintType, String> hints = new HashMap<EncodeHintType, String>();
-		hints.put(EncodeHintType.CHARACTER_SET, "utf-8");// 这个utf8一定要小写
-		BitMatrix bitMatrix = multiFormatWriter.encode(link,
-				BarcodeFormat.QR_CODE, 167, 167, hints);
-		String rootPath = request.getSession().getServletContext()
-				.getRealPath("/");
-		writeToStream(bitMatrix, "jpg", response.getOutputStream(), rootPath
-				+ "media/redpacket/images/redpacket.jpg");
-		return rootPath;
-	}
-
-	public void writeToStream(BitMatrix matrix, String format,
-			OutputStream stream, String logoPath) throws IOException {
-		BufferedImage image = toBufferedImage(matrix);
-		if (null != logoPath) {
-			File logo = new File(logoPath);
-			if (logo.exists() && logo.isFile()) {
-				Graphics2D gs = image.createGraphics();
-				// 载入logo
-				Image img = ImageIO.read(new File(logoPath));
-				int wah = matrix.getHeight();
-				int x = (wah - 25) / 2;
-				gs.drawImage(img, x, x, 25, 25, null);
-				gs.dispose();
-				img.flush();
-			}
-		}
-		if (!ImageIO.write(image, format, stream)) {
-			throw new IOException("Could not write an image of format "
-					+ format);
-		}
-	}
-
-	public BufferedImage toBufferedImage(BitMatrix matrix) {
-		int width = matrix.getWidth();
-		int height = matrix.getHeight();
-		BufferedImage image = new BufferedImage(width, height,
-				BufferedImage.TYPE_INT_RGB);
-		for (int x = 0; x < width; x++) {
-			for (int y = 0; y < height; y++) {
-				image.setRGB(x, y, matrix.get(x, y) ? BLACK : WHITE);
-			}
-		}
-		return image;
-	}
+	
 
 	private static final int BLACK = 0xFF000000;
 	private static final int WHITE = 0xFFFFFFFF;

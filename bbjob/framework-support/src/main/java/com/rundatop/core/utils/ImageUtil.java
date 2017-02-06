@@ -13,9 +13,6 @@ import java.io.IOException;
 
 import javax.swing.ImageIcon;
 
-import org.springframework.web.context.ContextLoader;
-
-import com.rundatop.core.mybatis.plug.UeConfig;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGEncodeParam;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
@@ -25,7 +22,8 @@ public class ImageUtil {
 	/*
 	 * flag:如果flag=true，考虑ue配置问题，否则忽略
 	 */
-	 public static File resize(File originalFile, File resizedFile,  
+	 @SuppressWarnings("restriction")
+	public static File resize(File originalFile, File resizedFile,  
 	            int newWidth, float quality,boolean flag) throws IOException {  
 	  
 	        if (quality > 1) {  
@@ -39,11 +37,7 @@ public class ImageUtil {
 	  
 	        int iWidth = i.getWidth(null);
 	        
-	        //濡傛灉鍥剧墖鏈韩鐨勫ぇ灏忎笉澶т簬閰嶇疆鐨勫ぇ灏忥紝鍒欎笉鍘嬬缉
-	        UeConfig ue=(UeConfig)ContextLoader.getCurrentWebApplicationContext().getBean("ueConfig");
-	        if(flag && iWidth <= ue.getImageCompressBorder()){
-	        	return originalFile;
-	        }
+	       
 	        	
 	        
 	        int iHeight = i.getHeight(null);  
@@ -84,11 +78,12 @@ public class ImageUtil {
 	        FileOutputStream out = new FileOutputStream(resizedFile);  
 	  
 	        // Encodes image as a JPEG data stream  
-	        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);  
+	       
+			JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);  
 	  
-	        JPEGEncodeParam param = encoder  
+			JPEGEncodeParam param = encoder  
 	                .getDefaultJPEGEncodeParam(bufferedImage);  
-	  
+	        
 	        param.setQuality(quality, true);  
 	  
 	        encoder.setJPEGEncodeParam(param);  

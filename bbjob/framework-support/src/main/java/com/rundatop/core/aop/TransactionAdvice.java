@@ -6,7 +6,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.rundatop.core.dao.transaction.TransactionManager;
-import com.rundatop.core.utils.Utils;
 
 /**
  * 类功能说明：事务切面拦截器，负责服务层的数据库事务的管理
@@ -43,7 +42,9 @@ public class TransactionAdvice implements MethodInterceptor {
 			transactionManager.commit();
 			return o;
 		} catch (Exception e) {
-			log.error(Utils.getFullErrorMessage(e));
+			
+			//todo
+			//log.error(Utils.getFullErrorMessage(e));
 			transactionManager.rollback();
 			throw e;
 		} finally {

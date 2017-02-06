@@ -10,11 +10,8 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.rundatop.core.context.CommContext;
-import com.rundatop.core.context.ServiceBaseVO;
+
 import com.rundatop.core.spring.ApplicationContext;
-import com.rundatop.core.utils.Utils;
-import com.rundatop.core.utils.parse.json.JsonParser;
 
 /**
  * 类功能说明：服务日志拦截器，负责服务层的输入输出报文日志
@@ -69,73 +66,73 @@ public class ServiceLogAdvice implements MethodInterceptor {
 
 	public void afterReturning(Object ret, Method mehtod, Object[] params,
 			Object obj, long cost) {
-		if (log.isDebugEnabled()) {
-			try {
-				String SID = null;
-				org.springframework.stereotype.Service s = obj.getClass()
-						.getAnnotation(
-								org.springframework.stereotype.Service.class);
-				if (s != null) {
-					SID = s.value();
-				} else {
-					String[] names = ApplicationContext.getBeanNamesForType(obj
-							.getClass());
-					for (String name : names) {
-						if (obj.toString().equals(
-								ApplicationContext.getBean(name).toString())) {
-							SID = name;
-							break;
-						} else {
-							log.warn("未找到类型为:" + obj.getClass().getName()
-									+ "，对应的服务ID!");
-							SID = "未知ID";
-						}
-					}
-				}
-				Class clazz = obj.getClass();
-				StringBuffer logStr = new StringBuffer();
-				logStr.append(" \n 调用服务:" + SID + "， 类：" + clazz.getName()
-						+ "的实例方法：" + mehtod.getName() + "");
-				if (params.length > 0) {
-					List list = Arrays.asList(params);
-					if (list.size() == 1 && list.get(0) instanceof CommContext) {
-						logStr.append(" \n 输入参数为：" + list.get(0));
-					} else if (list.size() == 1
-							&& list.get(0) instanceof ServiceBaseVO) {
-						logStr.append(" \n 输入参数为："
-								+ JsonParser.pojotoJson((ServiceBaseVO) list
-										.get(0)));
+//		if (log.isDebugEnabled()) {
+//			try {
+//				String SID = null;
+//				org.springframework.stereotype.Service s = obj.getClass()
+//						.getAnnotation(
+//								org.springframework.stereotype.Service.class);
+//				if (s != null) {
+//					SID = s.value();
+//				} else {
+//					String[] names = ApplicationContext.getBeanNamesForType(obj
+//							.getClass());
+//					for (String name : names) {
+//						if (obj.toString().equals(
+//								ApplicationContext.getBean(name).toString())) {
+//							SID = name;
+//							break;
+//						} else {
+//							log.warn("未找到类型为:" + obj.getClass().getName()
+//									+ "，对应的服务ID!");
+//							SID = "未知ID";
+//						}
+//					}
+//				}
+//				Class clazz = obj.getClass();
+//				StringBuffer logStr = new StringBuffer();
+//				logStr.append(" \n 调用服务:" + SID + "， 类：" + clazz.getName()
+//						+ "的实例方法：" + mehtod.getName() + "");
+//				if (params.length > 0) {
+//					List list = Arrays.asList(params);
+//					if (list.size() == 1 && list.get(0) instanceof CommContext) {
+//						logStr.append(" \n 输入参数为：" + list.get(0));
+//					} else if (list.size() == 1
+//							&& list.get(0) instanceof ServiceBaseVO) {
+//						logStr.append(" \n 输入参数为："
+//								+ JsonParser.pojotoJson((ServiceBaseVO) list
+//										.get(0)));
+//
+//					} else {
+//						logStr.append(" \n 输入参数为："
+//								+ JsonParser.pojotoJson(list));
+//					}
+//
+//				} else {
+//					logStr.append(" \n 该方法无输入参数。" + " \n 总耗时：" + cost + "毫秒");
+//				}
+//
+//				if (ret instanceof CommContext) {
+//
+//					logStr.append(" \n 返回参数为：" + ret + " \n 总耗时：" + cost + "毫秒");
+//				} else if (ret instanceof ServiceBaseVO) {
+//					logStr.append(" \n 返回参数为：" + JsonParser.pojotoJson(ret)
+//							+ " \n 总耗时：" + cost + "毫秒");
+//				} else {
+//					HashMap tmp = new HashMap();
+//					tmp.put("ret", ret);
+//					logStr.append(" \n 返回参数为：" + JsonParser.pojotoJson(tmp)
+//							+ " \n 总耗时：" + cost + "毫秒");
+//				}
+//				if (logStr.length() > 0) {
+//					log.debug(logStr.toString());
+//				}
+//			} catch (Throwable e) {
+//				log.warn(" \n 调用  类：" + obj.getClass().getName() + "的实例方法："
+//						+ mehtod.getName() + "记录日志失败，错误原因："
+//						+ Utils.getFullErrorMessage(e));
+//			}
 
-					} else {
-						logStr.append(" \n 输入参数为："
-								+ JsonParser.pojotoJson(list));
-					}
-
-				} else {
-					logStr.append(" \n 该方法无输入参数。" + " \n 总耗时：" + cost + "毫秒");
-				}
-
-				if (ret instanceof CommContext) {
-
-					logStr.append(" \n 返回参数为：" + ret + " \n 总耗时：" + cost + "毫秒");
-				} else if (ret instanceof ServiceBaseVO) {
-					logStr.append(" \n 返回参数为：" + JsonParser.pojotoJson(ret)
-							+ " \n 总耗时：" + cost + "毫秒");
-				} else {
-					HashMap tmp = new HashMap();
-					tmp.put("ret", ret);
-					logStr.append(" \n 返回参数为：" + JsonParser.pojotoJson(tmp)
-							+ " \n 总耗时：" + cost + "毫秒");
-				}
-				if (logStr.length() > 0) {
-					log.debug(logStr.toString());
-				}
-			} catch (Throwable e) {
-				log.warn(" \n 调用  类：" + obj.getClass().getName() + "的实例方法："
-						+ mehtod.getName() + "记录日志失败，错误原因："
-						+ Utils.getFullErrorMessage(e));
-			}
-
-		}
+//		}
 	}
 }

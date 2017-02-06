@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.rundatop.core.common.Page;
-import com.rundatop.core.utils.JacksonMapper;
 
 
 public abstract class AbstractController  {
@@ -19,8 +18,7 @@ public abstract class AbstractController  {
 	protected static final String ENTITY = "entity";
 	
 	protected static final String SESSION_USER = "sessionUser";
-	
-	protected JacksonMapper Jsonmapper = new JacksonMapper("yyyy-MM-dd HH:mm:ss");
+
 	
 	protected Logger getLogger() {
 		return LoggerFactory.getLogger(AbstractController.class);
