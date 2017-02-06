@@ -293,7 +293,6 @@
   
  <modules>
  	<module>framework-support</module>
- 	<module>web-demo</module>
  	<module>web-demo2</module>
  </modules>
 </project>
