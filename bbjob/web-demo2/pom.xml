@@ -5,12 +5,11 @@
     <artifactId>bbjob</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>web-demo</artifactId>
+  <artifactId>web-demo2</artifactId>
   <packaging>war</packaging>
-  <name>web-demo</name>
-  <description>web项目打包示例</description>
- 
- <properties>
+  <name>webdemo2</name>
+  <description>webdemo2</description>
+   <properties>
  	  <!--  MyBatis Generator  -->
         <!--  Java接口和实体类  -->
         <targetJavaProject>${basedir}/src/main/java</targetJavaProject>
@@ -21,6 +20,7 @@
         <targetXMLPackage>mapper</targetXMLPackage>
  </properties>
  
+ 
   <dependencies>
   	<dependency>
   	<groupId>rundatop</groupId>
@@ -28,7 +28,6 @@
   	<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>
-  
   
   
   <build>
@@ -76,4 +75,5 @@
             
   	</plugins>
   </build>
+
 </project>
