@@ -1,0 +1,243 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>rundatop</groupId>
+  <artifactId>bbjob</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>bbjob</name>
+  
+  
+  <properties>
+   		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   		<!--  编译jdk版本  -->
+        <jdk.version>1.8</jdk.version>
+        <!--  依赖版本  -->
+   		<mysql.version>5.1.39</mysql.version>
+   		<mapper.version>3.3.9</mapper.version>
+   		<mybatis.version>3.4.2</mybatis.version>
+   		<spring.version>4.3.5.RELEASE</spring.version>
+        <mybatis.spring.version>1.2.4</mybatis.spring.version>
+        <pagehelper.version>5.0.0</pagehelper.version>
+   </properties>
+  
+  <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>local private nexus</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>sonatype-nexus-releases</id>
+            <name>Sonatype Nexus Releases</name>
+            <url>http://oss.sonatype.org/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+    <dependencies>
+  <!-- json处理 -->
+  	<dependency>
+	    <groupId>org.codehaus.jackson</groupId>
+	    <artifactId>jackson-core-asl</artifactId>
+	    <version>1.9.13</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.codehaus.jackson</groupId>
+	    <artifactId>jackson-mapper-asl</artifactId>
+	    <version>1.9.13</version>
+	</dependency>
+  <!--浏览器userAgent获取 -->
+  <dependency>
+    <groupId>nl.bitwalker</groupId>
+    <artifactId>UserAgentUtils</artifactId>
+    <version>1.2.4</version>
+	</dependency>
+	<!--word excel文档处理 -->
+		<dependency>
+	        <groupId>org.apache.poi</groupId>
+	        <artifactId>poi-scratchpad</artifactId>
+	        <version>3.10.1</version>
+	    </dependency>
+	<dependency>  
+	        <groupId> fr.opensagres.xdocreport</groupId>  
+	        <artifactId> org.apache.poi.xwpf.converter.core</artifactId>  
+	        <version> 1.0.4</version>  
+	    </dependency> 
+	 <dependency>  
+	        <groupId> fr.opensagres.xdocreport</groupId>  
+	        <artifactId> org.apache.poi.xwpf.converter.xhtml</artifactId>  
+	        <version> 1.0.4</version>  
+	    </dependency>
+	  <!-- spring -->
+	  <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	 
+	 <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context-support</artifactId>
+    <version>${spring.version}</version>
+</dependency>
+	 
+	 
+	 <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>${spring.version}</version>
+</dependency>
+	 
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>${spring.version}</version>
+</dependency>
+
+
+
+
+ 
+	 <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.7</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+<dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+    <version>2.3.23</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>${mybatis.version}</version>
+</dependency> 
+
+<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-log4j12</artifactId>
+    <version>1.7.22</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.5</version>
+</dependency>
+
+<dependency>
+    <groupId>com.github.jsqlparser</groupId>
+    <artifactId>jsqlparser</artifactId>
+    <version>0.9.6</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    <version>2.8.6</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.8.6</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/com.google.code.simple-spring-memcached/simple-spring-memcached -->
+<dependency>
+    <groupId>com.google.code.simple-spring-memcached</groupId>
+    <artifactId>simple-spring-memcached</artifactId>
+    <version>3.6.1</version>
+</dependency>
+
+
+<dependency>
+    <groupId>tk.mybatis</groupId>
+    <artifactId>mapper</artifactId>
+    <version>${mapper.version}</version>
+</dependency>
+
+<dependency>
+    <groupId>com.github.pagehelper</groupId>
+    <artifactId>pagehelper</artifactId>
+    <version>${pagehelper.version}</version>
+</dependency>
+ 
+<!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+<dependency>
+    <groupId>org.mybatis.generator</groupId>
+    <artifactId>mybatis-generator-core</artifactId>
+    <version>1.3.5</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>${mysql.version}</version>
+</dependency>
+  
+ </dependencies>
+ 
+ 
+ 
+ 
+ <build>
+	<plugins>
+	   <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-compiler-plugin</artifactId>
+		  <version>2.1</version>
+		  <configuration>
+			 <source>${jdk.version}</source>
+			 <target>${jdk.version}</target>
+		  </configuration>
+	   </plugin>
+	</plugins>
+ </build>
+  
+ <modules>
+ 	<module>framework-support</module>
+ 	<module>web-demo</module>
+ </modules>
+</project>
