@@ -18,10 +18,10 @@
     <aop:aspectj-autoproxy/>
 
     <aop:config>
-        <aop:pointcut id="appService" expression="execution(* com.rundatop.**.service..*Service*.*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="appService"/>
+        <aop:pointcut id="txService" expression="execution(* com.rundatop.**.service..*Service*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txService"/>     
     </aop:config>
-
+	
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="select*" read-only="true"/>
@@ -34,4 +34,16 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    
+    <aop:config>
+		 <aop:pointcut id="logService" expression="execution( * com.rundatop..*(..)) and @target(org.springframework.stereotype.Service)"/>
+		 <aop:advisor advice-ref="serviceLogAdvice" pointcut-ref="logService"/> 
+	</aop:config>
+	
+	
+	
+    
+    <bean id="serviceLogAdvice" class="com.rundatop.core.aop.ServiceLogAdvice">
+	</bean>
+	
 </beans>
