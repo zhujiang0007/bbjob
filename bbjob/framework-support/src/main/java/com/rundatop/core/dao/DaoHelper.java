@@ -12,17 +12,20 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
+import javax.transaction.TransactionManager;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.rundatop.core.dao.transaction.TransactionManager;
 import com.rundatop.core.exception.BizRuntimeException;
 
 /**
@@ -278,10 +281,16 @@ public class DaoHelper {
 		return jdbcTemplate.update(charsetLocal2DB(sql), params);
 	}
 
-	public void beginTransaction() {
-		if (!this.transactionManager.isTransaction()) {
-			this.transactionManager.begin();
-		}
+	public void beginTransaction() {		
+			try {
+				this.transactionManager.begin();
+			} catch (NotSupportedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SystemException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	public String charsetDB2Local(String v) {
@@ -383,10 +392,28 @@ public class DaoHelper {
 		return Integer.parseInt(hash.get("total").toString());
 	}
 
-	protected void commit() {
-		if (this.transactionManager.isTransaction()) {
-			this.transactionManager.commit();
-		}
+	protected void commit() {	
+			try {
+				this.transactionManager.commit();
+			} catch (SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (RollbackException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (HeuristicMixedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (HeuristicRollbackException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SystemException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	public TransactionManager getTransactionManager() {

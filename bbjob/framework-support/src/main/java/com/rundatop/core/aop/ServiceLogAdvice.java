@@ -13,23 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.rundatop.core.spring.ApplicationContext;
 
-/**
- * 类功能说明：服务日志拦截器，负责服务层的输入输出报文日志
- * <p>
- * 类修改者
- * <p>
- * 修改日期
- * <p>
- * 修改说明
- * <p>
- * Copyright: Copyright (c) 2014
- * <p>
- * Company:广联达软件股份有限公司
- * 
- * @author pus-a
- * @date 2014-4-18 下午1:28:34
- * @version V1.0
- */
+
 public class ServiceLogAdvice implements MethodInterceptor {
 	private static final Logger log=LoggerFactory.getLogger(ServiceLogAdvice.class);
 
