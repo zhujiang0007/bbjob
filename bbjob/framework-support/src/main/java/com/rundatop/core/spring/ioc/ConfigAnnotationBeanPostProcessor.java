@@ -25,7 +25,6 @@ import org.springframework.beans.SimpleTypeConverter;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
 import org.springframework.util.ReflectionUtils;
 
-import com.rundatop.core.config.SystemConfig;
 import com.rundatop.core.spring.annotation.Config;
 import com.rundatop.core.spring.config.ExtendedPropertyPlaceholderConfigurer;
 
@@ -35,11 +34,7 @@ public class ConfigAnnotationBeanPostProcessor extends
 		InstantiationAwareBeanPostProcessorAdapter {
 
 	private ExtendedPropertyPlaceholderConfigurer propertyConfigurer;
-	private SystemConfig systemConfig;
 	
-	public void setSystemConfig(SystemConfig systemConfig) {
-		this.systemConfig = systemConfig;
-	}
 
 	/**
 	 * @param propertyConfigurer
