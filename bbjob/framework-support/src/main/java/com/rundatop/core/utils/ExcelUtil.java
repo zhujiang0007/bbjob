@@ -363,7 +363,7 @@ public class ExcelUtil {
 		case Cell.CELL_TYPE_NUMERIC:  
 			if (DateUtil.isCellDateFormatted(cell)) {   
 				Date theDate = cell.getDateCellValue();  
-				ret = Tool.stringOfDateTime(theDate);  
+				ret = DateUtils.stringOfDateTime(theDate);  
 			} else {   
 				ret = NumberToTextConverter.toText(cell.getNumericCellValue());  
 			}  

@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.rundatop.core.json.JsonParser;
 import com.rundatop.core.spring.ApplicationContext;
-import com.rundatop.core.utils.Utils;
+import com.rundatop.core.utils.ExceptionUtils;
 
 
 public class ServiceLogAdvice implements MethodInterceptor {
@@ -100,7 +100,7 @@ public class ServiceLogAdvice implements MethodInterceptor {
 			} catch (Throwable e) {
 				log.warn(" \n 调用  类：" + obj.getClass().getName() + "的实例方法："
 						+ mehtod.getName() + "记录日志失败，错误原因："
-						+ Utils.getFullErrorMessage(e));
+						+ ExceptionUtils.getFullErrorMessage(e));
 			}
 		}
 	}

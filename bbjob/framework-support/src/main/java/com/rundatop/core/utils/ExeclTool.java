@@ -59,10 +59,10 @@ public class ExeclTool<T> {
         HSSFRow dateRow = sheet.createRow(1);
         if(herders.size()==1){
         	HSSFCell dateCell = dateRow.createCell(0);
-        	dateCell.setCellValue("制单日期："+Tool.stringOfCnDate());
+        	dateCell.setCellValue("制单日期："+DateUtils.stringOfCnDate());
         }else{
         	dateRow.createCell(herders.size()-2).setCellValue("制单日期：");
-        	dateRow.createCell(herders.size()-1).setCellValue(Tool.stringOfCnDate());
+        	dateRow.createCell(herders.size()-1).setCellValue(DateUtils.stringOfCnDate());
         }
         
         HSSFRow row = sheet.createRow(2); 
@@ -192,10 +192,10 @@ public class ExeclTool<T> {
         HSSFRow dateRow = sheet.createRow(1);
         if(herders.size()==1){
         	HSSFCell dateCell = dateRow.createCell(0);
-        	dateCell.setCellValue("制表日期："+Tool.stringOfCnDate());
+        	dateCell.setCellValue("制表日期："+DateUtils.stringOfCnDate());
         }else{
         	dateRow.createCell(herders.size()-2).setCellValue("制表日期：");
-        	dateRow.createCell(herders.size()-1).setCellValue(Tool.stringOfCnDate());
+        	dateRow.createCell(herders.size()-1).setCellValue(DateUtils.stringOfCnDate());
         }
         
         HSSFRow row = sheet.createRow(2); 

@@ -3,7 +3,7 @@ package com.rundatop.core.exception;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.rundatop.core.utils.Utils;
+import com.rundatop.core.utils.ExceptionUtils;
 
 
 
@@ -24,12 +24,12 @@ public class BizException extends Exception {
 	public BizException(String errorCode, String message, Throwable cause) {
 		super(message, cause);
 		this.errorCode = errorCode;
-		log.error(Utils.getFullErrorMessage(cause));
+		log.error(ExceptionUtils.getFullErrorMessage(cause));
 	}
 
 	public BizException(String message, Throwable cause) {
 		super(message, cause);
-		log.error(Utils.getFullErrorMessage(cause));
+		log.error(ExceptionUtils.getFullErrorMessage(cause));
 	}
 
 	public BizException(String message) {
@@ -43,6 +43,6 @@ public class BizException extends Exception {
 
 	public BizException(Throwable cause) {
 		super(cause);
-		log.error(Utils.getFullErrorMessage(cause));
+		log.error(ExceptionUtils.getFullErrorMessage(cause));
 	}
 }

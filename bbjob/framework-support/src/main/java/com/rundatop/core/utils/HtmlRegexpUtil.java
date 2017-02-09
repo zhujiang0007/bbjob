@@ -170,7 +170,46 @@ public class HtmlRegexpUtil {
         }   
         matcherForTag.appendTail(sb);   
         return sb.toString();   
-    }   
+    }
+    /**
+     * 生成htmlSelect
+     * @param value
+     * @param text
+     * @param selected
+     * @return
+     */
+    public static String HtmlSelect(String value[], String text[],
+			String selected) {
+		StringBuffer htmlSelect = new StringBuffer();
+		try {
+			for (int i = 0; i < text.length; i++) {
+
+				if (selected != null && selected.trim().equals(value[i].trim())) {
+					htmlSelect.append("<OPTION value=\"");
+					htmlSelect.append(value[i]);
+					htmlSelect.append("\"  selected>");
+					htmlSelect.append(text[i]);
+					htmlSelect.append(" </OPTION>");
+				} else {
+					htmlSelect.append("<OPTION value=\"");
+					htmlSelect.append(value[i]);
+					htmlSelect.append("\" >");
+					htmlSelect.append(text[i]);
+					htmlSelect.append(" </OPTION>");
+				}
+			}
+
+		} catch (Exception e) {
+
+			// TODO 自动生成 catch 块
+			// log.error("异常:" + e.getMessage());
+		}
+
+		return htmlSelect.toString();
+
+	}
+    
+    
     
     public static void main(String[] args) {
 		String html = "<script type='text/javascript'>alert(1);</script>";

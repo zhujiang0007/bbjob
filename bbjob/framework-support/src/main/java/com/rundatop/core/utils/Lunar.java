@@ -4,7 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ * 农历年工具
+ * @author zj
+ * @date   2017年2月9日
+ *
+ */
 public class Lunar {
     private int year;
     private int month;
@@ -37,7 +42,11 @@ public class Lunar {
             0x1d0b6, 0x0d250, 0x0d520, 0x0dd45, 0x0b5a0, 0x056d0, 0x055b2,
             0x049b0, 0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0 };
  
-    // ====== 传回农历 y年的总天数
+    /**
+     * 农历年总天数
+     * @param y
+     * @return
+     */
     final private static int yearDays(int y) {
         int i, sum = 348;
         for (i = 0x8000; i > 0x8; i >>= 1) {
