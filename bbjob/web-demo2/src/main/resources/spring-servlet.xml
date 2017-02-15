@@ -24,7 +24,13 @@
   <context:component-scan base-package="com.rundatop.**.controller"/>
 
   <bean id="stringHttpMessageConverter"
-        class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        class="org.springframework.http.converter.StringHttpMessageConverter">
+		  <property name="supportedMediaTypes"> 
+		  	<list> 
+		  		<value>text/plain;charset=UTF-8</value> 
+		  	</list> 
+		  </property>
+  </bean>
 
   <bean id="marshallingHttpMessageConverter"
         class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
@@ -107,7 +113,7 @@
   </bean>
 
   <!--文件上传-->
-  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+  <bean id="multipartResolver" class="com.rundatop.core.io.upload.CustomMultipartResolver">
     <property name="maxUploadSize" value="100000"/>
   </bean>
 
