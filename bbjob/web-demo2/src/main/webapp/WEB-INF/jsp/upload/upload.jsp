@@ -4,18 +4,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<link media="all" href="${pageContext.request.contextPath}/upload/css/common.css" type="text/css" rel="stylesheet">
-<link media="all" href="${pageContext.request.contextPath}/upload/css/style.css" type="text/css" rel="stylesheet">
-<link media="all" href="${pageContext.request.contextPath}/upload/css/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" type="text/css" />
-<script src="${pageContext.request.contextPath}/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/javascript/public.js" type="text/javascript"></script>
+<link media="all" href="${pageContext.request.contextPath}/static/css/upload/common.css" type="text/css" rel="stylesheet">
+<link media="all" href="${pageContext.request.contextPath}/static/css/upload/style.css" type="text/css" rel="stylesheet">
+<link media="all" href="${pageContext.request.contextPath}/static/css/upload/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/static/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/static/js/ajaxfileupload.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 var PATH = "${pageContext.request.contextPath}";
 </script>
 <body>
 
-<button onclick="">开始上传</button>
+<button onclick="showCont()">开始上传</button>
 
 
 <div class="yxbox">

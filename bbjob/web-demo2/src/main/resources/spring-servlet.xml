@@ -114,7 +114,7 @@
 
   <!--文件上传-->
   <bean id="multipartResolver" class="com.rundatop.core.io.upload.CustomMultipartResolver">
-    <property name="maxUploadSize" value="100000"/>
+   <!--  <property name="maxUploadSize" value="1000000"/> -->
   </bean>
 
 </beans>
