@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+     http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"  
+    version="2.0">
+    <tlib-version>1.0</tlib-version>   	
+    <short-name>p</short-name>   
+    <uri>http://bbjob.zj.com/jsp/prop</uri>
+<function>  
+  
+<!-- 对这个EL方法的描述  -->  
+  
+       <description>获取系统中的配置信息</description>   
+  
+       <name>get</name><!-- 调用EL方法的名称 -->   
+  
+        <function-class>com.rundatop.core.tag.PropertiesFunction</function-class>   
+  
+        <function-signature>   
+  
+             java.lang.String getProperty(java.lang.String)  
+  
+        </function-signature>   
+  
+         <example>${p:get(str)}</example><!-- 例如 -->   
+  
+      </function>  
+</taglib>  

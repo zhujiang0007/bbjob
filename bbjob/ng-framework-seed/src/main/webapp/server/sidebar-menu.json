@@ -1,0 +1,16 @@
+
+{
+	"statusCode": 200,
+	"data": [
+					  {
+					    "purviewName": "echarts 展示",
+					    "url": "app.echarts",
+					    "icon": "icon-graph"
+					  },
+					  {
+					    "purviewName": "ngTable 展示",
+					    "url": "app.ngTable",
+					    "icon": "fa fa-table"
+					  }
+					]
+}

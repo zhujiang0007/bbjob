@@ -1,0 +1,42 @@
+
+<!-- 	
+
+		panelDemo为唯一标识，同一页面中如果多个paneltool，每个paneltool一个标识  
+		
+		默认打开关闭，在 <下拉箭头paneltool> 标签属性 init 定义的变量boolean ,  true为默认关闭， false为默认打开         
+		                 	
+		使用时，需要 routes 加载 paneltool。                 	
+		
+ 		使用时，请删除备注信息，因为太low了                                 				
+ 		
+-->
+
+<!-- PanelTool Start -->
+	<div id="panelDemo" class="panel">
+			<!-- 标题部分容器 start -->
+           <div ng-class="{'panel-heading-collapsed':panelDemo}" class="panel-heading">
+           		默认标题位置
+           		
+           		
+           		<!-- 下拉箭头位置 start -->
+	           <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" ng-init="panelDemo=false"></paneltool>
+           		<!-- 下拉箭头位置 end -->
+           </div>
+			<!-- 标题部分容器 end -->
+           
+           
+           
+           <!-- 滑动下拉容器 start -->
+			<div uib-collapse="panelDemo" class="panel-wrapper">
+				<div class="panel-body MpaddingTop5">
+				</div>
+			</div>
+           <!-- 滑动下拉容器 end -->
+	</div>
+<!-- PanelTool End -->
+
+
+
+
+
+

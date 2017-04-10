@@ -1,0 +1,100 @@
+.number-container{
+	background-color: #f7f8fa;
+	border: 1px solid #e3e5e8;
+	padding-left: 7%;
+	padding-right: 7%;
+}
+.number {
+	display: inline-block;
+	height: 49px !important;
+    width: 35px !important;
+    overflow: hidden;
+    background-image: url('img/number.png');
+    background-repeat: no-repeat;
+}
+.number-white   { background-image: url('img/number-white.png')   !important; 	}
+.number-primary { background-image: url('img/number-primary.png') !important; 	}
+.number-success { background-image: url('img/number-success.png') !important; 	}
+.number-info    { background-image: url('img/number-info.png') 	  !important; 	}
+.number-warning { background-image: url('img/number-warning.png') !important; 	}
+.number-danger  { background-image: url('img/number-danger.png')  !important; 	}
+.number-green   { background-image: url('img/number-green.png')   !important; 	}
+.number-pink    { background-image: url('img/number-pink.png')   !important; 	}
+.number-purple  { background-image: url('img/number-purple.png')  !important; 	}
+.number-yellow  { background-image: url('img/number-yellow.png')  !important; 	}
+.number-xs {
+	height: 24.5px !important;
+    width: 17.5px !important;
+	background-size: 90.5px 73.5px;
+}
+.number-sm {
+	height: 36.75px !important;
+    width: 26.25px !important;
+	background-size: 135.75px 110.25px;
+}
+.number-t { background-position: -138px -98px; 	}
+.number-0 { background-position: -35px 0; 		}
+.number-1 { background-position: -138px 0; 		}
+.number-2 { background-position: -69px 0; 		}
+.number-3 { background-position: 0 -49px; 		}
+.number-4 { background-position: -35px -49px; 	}
+.number-5 { background-position: -69px -49px;	}
+.number-6 { background-position: -104px 0; 		}
+.number-7 { background-position: -104px -49px; 	}
+.number-8 { background-position: 0 0; 			}
+.number-9 { background-position: -138px -49px; 	}
+.number-E { background-position: 0 -98px; 		}
+.number-o { background-position: -104px -98px; 	}
+.number-r { background-position: -35px -98px; 	}
+.number-d { background-position: -173px 0; 		}
+
+.number-xs.number-t { background-position: -69px -49px; 		}
+.number-xs.number-0 { background-position: -22.5px 0; 			}
+.number-xs.number-1 { background-position: -69px 0; 			}
+.number-xs.number-2 { background-position: -34.5px 0; 			}
+.number-xs.number-3 { background-position: 0 -24.5px; 			}
+.number-xs.number-4 { background-position: -17.5px -24.8px; 	}
+.number-xs.number-5 { background-position: -34.5px -24.5px; 	}
+.number-xs.number-6 { background-position: -52px 0; 			}
+.number-xs.number-7 { background-position: -52px -24.5px; 		}
+.number-xs.number-8 { background-position: 0 0;					}
+.number-xs.number-9 { background-position: -69px -24.5px; 		}
+.number-xs.number-E { background-position: 0 -49px; 			}
+.number-xs.number-o { background-position: -52px -49px; 		}
+.number-xs.number-r { background-position: -17.5px -49px; 		}
+.number-xs.number-d { background-position: -66.5px 0; 			}
+
+.number-sm.number-t { background-position: -103.5px -73.5px; 	}
+.number-sm.number-0 { background-position: -33.75px 0; 			}
+.number-sm.number-1 { background-position: -103.5px 0; 			}
+.number-sm.number-2 { background-position: -51.75px 0; 			}
+.number-sm.number-3 { background-position: 0 -36.75px; 			}
+.number-sm.number-4 { background-position: -26.25px -36.75px; 	}
+.number-sm.number-5 { background-position: -51.75px -36.75px; 	}
+.number-sm.number-6 { background-position: -78px 0; 			}
+.number-sm.number-7 { background-position: -78px -36.75px; 		}
+.number-sm.number-8 { background-position: 0 0; 				}
+.number-sm.number-9 { background-position: -103.5px -36.75px; 	}
+.number-sm.number-E { background-position: 0 -73.5px; 			}
+.number-sm.number-o { background-position: -78px -73.5px; 		}
+.number-sm.number-r { background-position: -26.25px -73.5px; 	}
+.number-sm.number-d { background-position: -129.75px 0; 		}
+
+.number-f{
+	display: inline-block;
+	font-size:70px !important; 
+	color: #333 !important;
+	}
+.number-sm-f{
+	display: inline-block;
+	font-size:50px !important; 
+	color: #444 !important;
+	}
+.number-xs-f{
+	display: inline-block;
+	font-size:30px !important; 
+	color: #555 !important;
+	}
+.number-f-light{
+	color: #999 !important;
+	}

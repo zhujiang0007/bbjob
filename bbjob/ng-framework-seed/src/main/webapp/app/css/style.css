@@ -1,0 +1,248 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*MM*/
+
+.content-wrapper>.content-heading{
+	color: #aaa !important;
+	font-size: 18px !important;
+	font-weight: bold;
+}
+
+
+/* width */
+.Mwidth0{width: 0 !important;}
+.Mwidth4{width: 4% !important;}
+.Mwidth5{width: 5% !important;}
+
+/* height */
+.MheightAuto{ height: auto !important; }
+
+.MmarginRight0{margin-right: 0 !important;}
+.MmarginLeft10{margin-left: 10px !important;}
+.MmarginRight10{margin-right: 10px !important;}
+.MmarginRight40{margin-right: 40px !important;}
+.Mmargin0{margin:0 !important;}
+.Mmargin10{margin:10px !important;}
+
+/*padding*/
+.Mpadding10{padding:10px !important;}
+.MpaddingTop0{padding-top:0 !important;}
+.MpaddingTop5{padding-top: 5px !important;}
+.MpaddingLeft0{padding-left:0px !important;}
+.MpaddingLeft5{padding-left:5px !important;}
+.MpaddingRight5{padding-right:5px !important;}
+.MpaddingLeft10{padding-left:10px !important;}
+.MpaddingRight10{padding-right:10px !important;}
+.MpaddingTB5{padding-top: 5px !importent; padding-bottom: 5px !important;}
+.Mtext{text-decoration:none !important;}
+/* btn radius */
+.MbtnR{border-radius:16px !important;}
+.btn{ font-size: 12px;}
+/* 全文字体Reset */
+ body{font-family:angle,"Source Sans Pro",sans-serif, '微软雅黑', 'Microsoft Yahei',"Hiragino Sans GB",tahoma,arial,"宋体" !important;}
+ body, .wrapper > section { background-color: #f0f2f5 !important; }
+ /*input Reset*/
+ input.form-control{height: 34px !important;}
+.btn:not(.btn-sm):not(.btn-lg):not(.btn-xs):not(.btn-md) {height: 34px !important;}
+ /* 使用mao.select2时，更改label的高度适配； */
+ .form-horizontal .MselectLabel{padding-top:4px;margin-bottom:0 !important; margin-left:9px !important; color: #aaa !important;}
+ .form-horizontal .MselectLabelc{padding-top:4px;margin-bottom:0 !important;}
+ /* 使input与select2的适配 */
+  .form-horizontal .Minput{ height: 28px !important; line-height: 26px !important; padding-top:0 !important; padding-bottom: 0 !important; color: #666 !important;}
+ 
+ /*Text Color*/ 
+ .MtextDark{color:#333 !important;} 
+ .MtextGray{color:#666 !important;}
+ .Mtext{color:#999 !important;}
+ .MtextGrayLight{color:#999 !important;}
+ .MtextBlueLight{color: #5d9cec !important;}
+ .MtextOrange{ color: #ffab5e !important;}
+ /* Text Size */
+ .MfontSize14{ font-size: 14px; }
+ .MfontSize12{ font-size: 12px; }
+ .MfontSize16{ font-size: 16px; }
+ /* Text lineHeight*/
+.MlineHeight18{ line-height: 18px; }
+.MlineHeight20{ line-height: 20px; }
+.MlineHeight22{ line-height: 22px; }
+.MlineHeight24{ line-height: 24px; }
+
+/* text bottom  */
+.MtextBdashed{ border-bottom: 1px dashed #428bca; }
+ 
+ /* font-weight OFF */
+ .MnoBold{font-weight:normal !important;}
+ .Mbold{font-weight:500 !important;}
+ /* table文字 */
+.table tr td{font-size:14px;color:#666; text-align: center;}
+.table tr th *{font-size:16px;color:#888; font-weight: 500;}
+.table-responsive th,.table-responsive td{ text-align:center;}
+.wuyuan { background-color: #f9f9f9; line-height:34px;}
+.MsmallTable tr td,.MsmallTable tbody tr td{font-size:12px !important;color:#666 !important; padding-top: 8px; padding-bottom: 8px; text-align: center !important;}
+.MsmallTable tr th,.MsmallTable thead tr th{font-size:14px !important;color:#888 !important; font-weight: 500 !important;padding-top: 8px;padding-bottom: 8px; text-align: center !important;}
+label{color: #888 !important;}
+
+.Mtable tr th * , .Mtable thead tr th * {
+	font-size:14px !important;
+	color:#bbb !important;
+	font-weight: bold !important;
+	text-align: center !important;
+	line-height: 18px !important;
+	}
+.Mtable tr td, .Mtable tbody tr td{
+	font-size:12px !important;
+	color: #777 !important;
+	font-weight: normal !important;
+	text-align: center !important;
+	line-height: 18px !important;
+	}
+.Mtable tr td  a , .Mtable tbody tr td a {
+	color: #0166ce !important;
+}
+.Mtable tr th, .Mtable thead tr th{
+	padding-top:  10px !important;
+	padding-bottom: 10px !important;
+	font-size:14px !important;
+	color:#bbb !important;
+	font-weight: bold !important;
+	text-align: center !important;
+	line-height: 18px !important;
+}
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: #777;
+}
+/** small table MsmallTable **/
+.MsmallTable>thead>tr>th{padding-top:8px;padding-bottom:8px;}
+.MsmallTable>tbody>tr>td{padding-top:5px;padding-bottom:5px;}
+/* sidebar Reset */
+.Msidebar > .nav > li > a {
+    color: #515253;
+    cursor: pointer;
+    font-weight: normal;
+    white-space: nowrap;
+    letter-spacing: 0.025em;
+    padding: 12px 24px;
+}			
+.Msidebar > .nav > li > a > em{
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    width: 1.8em;
+}			
+			
+.Msidebar > .nav .label {
+    margin: 2px 0 0;
+    display: block;
+}
+.Msidebar > .nav {
+    position: relative;
+}			
+.Msidebar::after {
+    background: rgba(0, 0, 0, 0.15) none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+}
+.Msidebar:not(.show-scrollbar) {
+    margin-right: -17px;
+    overflow-y: scroll;
+}
+.Msidebar {
+    background-color: #ffffff;
+    height: 100%;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+}
+.nav>.activeRegion{
+	background-color: #efefef;
+}
+/* form */
+form{margin:0 !important;}
+/* label Content */
+.Mlabel{
+	padding-top: 5px !important;
+	display:block;
+}
+
+/* reeSidebar start */
+.reeSidebar{
+    position: fixed;
+	height: 100%;
+	right: 0;
+    right: 0;
+    top: 0;
+	background-color: #fff;
+    border-left: 1px solid #cccccc;
+    bottom: 0;
+    color: #515253;
+    /*overflow: hidden;*/
+    transition: all 0.3s ease 0s;
+    width: 600px;
+    margin-right: -600px;
+    transform: translate3d(0px, 0px, 0px);
+	z-index: 9999;
+	padding-top: 55px;
+	/*padding: 55px 20px 20px;*/
+}
+.reeSidebar>.reeSidebarArrow{
+	position: absolute;
+	left: 8px;top: 60px;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 15px;
+	font-size: 18px;
+	border: 2px solid #e9e9e9;
+	border-radius: 2px;
+	background-color: #fff;
+	color: #999;
+	z-index: 9998;
+	cursor: pointer;
+}
+.reeSidebar>.table-responsive{
+	position: relative;
+	z-index: 9997;
+	height: 100%;
+	overflow-y:auto;
+}
+/* reeSidebar end */
+
+
+/* btn dropdown */
+.MbtnDownList { padding: 0 !important; }
+.MbtnDownList li{ color:#999 !important; cursor: pointer; padding-left:16px; padding-right:16px;line-height: 30px}
+.MbtnDownList li:hover{background-color: #eee; color: #777 !important;}
+
+
+
+/* 针对原型单选radio 选择圆圈不居中问题 */
+.Mc-radio span::before{	line-height: 20px !important;}
+
+
+/* 自定义面包屑 */
+.Mcrumb li a{
+font-size: 12px !important;
+color: #5d9cec !important;
+}
+.Mcrumb li{
+color: #aaa !important;
+}
+
+/* 文字溢出 */
+.textOver{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ngDialog */
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+	    padding: 0 !important;
+}

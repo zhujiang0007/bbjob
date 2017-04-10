@@ -1,0 +1,66 @@
+{
+	"statusCode": "200",
+		"data": [
+			{
+				"id": 1,
+				"commName": "世纪花城",
+				"buildingCount": 20,
+				"houseCount": 600,
+				"houseOwenrCount": 320,
+				"tenantCount": 100,
+				"nullHouseCount": 500,
+				"parkingCount": 610,
+				"carCount": 680
+			}, {
+				"id": 2,
+				"commName": "金马怡园",
+				"buildingCount": 20,
+				"houseCount": 900,
+				"houseOwenrCount": 200,
+				"tenantCount": 100,
+				"nullHouseCount": 500,
+				"parkingCount": 630,
+				"carCount": 600
+			}, {
+				"id": 3,
+				"commName": "锦绣花园",
+				"buildingCount": 20,
+				"houseCount": 800,
+				"houseOwenrCount": 300,
+				"tenantCount": 100,
+				"nullHouseCount": 500,
+				"parkingCount": 600,
+				"carCount": 680
+			}, {
+				"id": 4,
+				"commName": "东方之星",
+				"buildingCount": 20,
+				"houseCount": 800,
+				"houseOwenrCount": 300,
+				"tenantCount": 100,
+				"nullHouseCount": 500,
+				"parkingCount": 600,
+				"carCount": 680
+			}, {
+				"id": 5,
+				"commName": "友谊小区",
+				"buildingCount": 20,
+				"houseCount": 800,
+				"houseOwenrCount": 300,
+				"tenantCount": 100,
+				"nullHouseCount": 500,
+				"parkingCount": 600,
+				"carCount": 680
+			}, {
+				"id": 6,
+				"commName": "月圆星溪",
+				"buildingCount": 20,
+				"houseCount": 300,
+				"houseOwenrCount": 200,
+				"tenantCount": 100,
+				"nullHouseCount": 100,
+				"parkingCount": 100,
+				"carCount": 180
+			}
+		]
+}

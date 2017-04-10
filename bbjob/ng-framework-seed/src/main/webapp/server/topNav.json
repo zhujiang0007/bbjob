@@ -1,0 +1,11 @@
+{
+	"statusCode": 200,
+	"success": true,
+	"data": [
+		{"id": 1, "purviewName": "menu1"},
+		{"id": 2, "purviewName": "menu2"},
+		{"id": 3, "purviewName": "menu3"},
+		{"id": 4, "purviewName": "menu4"},
+		{"id": 5, "purviewName": "menu5"}
+	] 
+}

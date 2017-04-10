@@ -1,0 +1,496 @@
+.preloader-progress {
+	background-image: url("../img/preloader/loadNow.png") !important;
+	background-size: 72px 17px !important;
+	height: 17px !important;
+	width: 72px
+}
+
+.preloader-progress-bar {
+	background-image: url("../img/preloader/loadNow.full.png") !important;
+	background-size: 72px 17px !important;
+	height: 17px !important;
+	width: 72px
+}
+
+.content-wrapper>.content-heading {
+	color: #aaa !important;
+	font-size: 18px !important;
+	font-weight: bold
+}
+
+input.form-control {
+	height: 34px !important
+}
+
+.btn:not (.btn-sm ):not (.btn-lg ):not (.btn-xs ):not (.btn-md ){
+	height: 34px !important
+}
+
+.Mtable tr th *, .Mtable thead tr th * {
+	font-size: 14px !important;
+	color: #bbb !important;
+	font-weight: bold !important;
+	text-align: center !important;
+	line-height: 18px !important
+}
+
+.Mtable tr td, .Mtable tbody tr td {
+	font-size: 12px !important;
+	color: #777 !important;
+	font-weight: normal !important;
+	text-align: center !important;
+	line-height: 18px !important
+}
+
+.Mtable tr td a, .Mtable tbody tr td a {
+	color: #0166ce !important
+}
+
+.Mtable tr th, .Mtable thead tr th {
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+	font-size: 14px !important;
+	color: #bbb !important;
+	font-weight: bold !important;
+	text-align: center !important;
+	line-height: 18px !important
+}
+
+.textOver {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.MwidthAuto {
+	width: auto !important
+}
+
+.Mwidth0 {
+	width: 0% !important
+}
+
+.Mwidth10 {
+	width: 10% !important
+}
+
+.Mwidth20 {
+	width: 20% !important
+}
+
+.Mwidth30 {
+	width: 30% !important
+}
+
+.Mwidth40 {
+	width: 40% !important
+}
+
+.Mwidth50 {
+	width: 50% !important
+}
+
+.Mwidth60 {
+	width: 60% !important
+}
+
+.Mwidth70 {
+	width: 70% !important
+}
+
+.Mwidth80 {
+	width: 80% !important
+}
+
+.Mwidth90 {
+	width: 90% !important
+}
+
+.Mwidth100 {
+	width: 100% !important
+}
+
+.MheightAuto {
+	height: auto !important
+}
+
+.Mheight0 {
+	height: 0% !important
+}
+
+.Mheight10 {
+	height: 10% !important
+}
+
+.Mheight20 {
+	height: 20% !important
+}
+
+.Mheight30 {
+	height: 30% !important
+}
+
+.Mheight40 {
+	height: 40% !important
+}
+
+.Mheight50 {
+	height: 50% !important
+}
+
+.Mheight60 {
+	height: 60% !important
+}
+
+.Mheight70 {
+	height: 70% !important
+}
+
+.Mheight80 {
+	height: 80% !important
+}
+
+.Mheight90 {
+	height: 90% !important
+}
+
+.Mheight100 {
+	height: 100% !important
+}
+
+.Mmargin0 {
+	margin: 0 !important
+}
+
+.MmarginTop0 {
+	margin-top: 0px !important
+}
+
+.MmarginBottom0 {
+	margin-bottom: 0px !important
+}
+
+.MmarginLeft0 {
+	margin-left: 0px !important
+}
+
+.MmarginRight0 {
+	margin-right: 0px !important
+}
+
+.MmarginTop10 {
+	margin-top: 10px !important
+}
+
+.MmarginBottom10 {
+	margin-bottom: 10px !important
+}
+
+.MmarginLeft10 {
+	margin-left: 10px !important
+}
+
+.MmarginRight10 {
+	margin-right: 10px !important
+}
+
+.MmarginTop20 {
+	margin-top: 20px !important
+}
+
+.MmarginBottom20 {
+	margin-bottom: 20px !important
+}
+
+.MmarginLeft20 {
+	margin-left: 20px !important
+}
+
+.MmarginRight20 {
+	margin-right: 20px !important
+}
+
+.MmarginTop30 {
+	margin-top: 30px !important
+}
+
+.MmarginBottom30 {
+	margin-bottom: 30px !important
+}
+
+.MmarginLeft30 {
+	margin-left: 30px !important
+}
+
+.MmarginRight30 {
+	margin-right: 30px !important
+}
+
+.MmarginTop40 {
+	margin-top: 40px !important
+}
+
+.MmarginBottom40 {
+	margin-bottom: 40px !important
+}
+
+.MmarginLeft40 {
+	margin-left: 40px !important
+}
+
+.MmarginRight40 {
+	margin-right: 40px !important
+}
+
+.MmarginTop50 {
+	margin-top: 50px !important
+}
+
+.MmarginBottom50 {
+	margin-bottom: 50px !important
+}
+
+.MmarginLeft50 {
+	margin-left: 50px !important
+}
+
+.MmarginRight50 {
+	margin-right: 50px !important
+}
+
+.Mpadding0 {
+	padding: 0 !important
+}
+
+.MpaddingTop0 {
+	padding-top: 0px !important
+}
+
+.MpaddingBottom0 {
+	padding-bottom: 0px !important
+}
+
+.MpaddingLeft0 {
+	padding-left: 0px !important
+}
+
+.MpaddingRight0 {
+	padding-right: 0px !important
+}
+
+.MpaddingTop10 {
+	padding-top: 10px !important
+}
+
+.MpaddingBottom10 {
+	padding-bottom: 10px !important
+}
+
+.MpaddingLeft10 {
+	padding-left: 10px !important
+}
+
+.MpaddingRight10 {
+	padding-right: 10px !important
+}
+
+.MpaddingTop20 {
+	padding-top: 20px !important
+}
+
+.MpaddingBottom20 {
+	padding-bottom: 20px !important
+}
+
+.MpaddingLeft20 {
+	padding-left: 20px !important
+}
+
+.MpaddingRight20 {
+	padding-right: 20px !important
+}
+
+.MpaddingTop30 {
+	padding-top: 30px !important
+}
+
+.MpaddingBottom30 {
+	padding-bottom: 30px !important
+}
+
+.MpaddingLeft30 {
+	padding-left: 30px !important
+}
+
+.MpaddingRight30 {
+	padding-right: 30px !important
+}
+
+.MpaddingTop40 {
+	padding-top: 40px !important
+}
+
+.MpaddingBottom40 {
+	padding-bottom: 40px !important
+}
+
+.MpaddingLeft40 {
+	padding-left: 40px !important
+}
+
+.MpaddingRight40 {
+	padding-right: 40px !important
+}
+
+.MpaddingTop50 {
+	padding-top: 50px !important
+}
+
+.MpaddingBottom50 {
+	padding-bottom: 50px !important
+}
+
+.MpaddingLeft50 {
+	padding-left: 50px !important
+}
+
+.MpaddingRight50 {
+	padding-right: 50px !important
+}
+
+.MfontSize12 {
+	font-size: 12px !important
+}
+
+.MlineHeight12 {
+	line-height: 12px !important
+}
+
+.MfontSize14 {
+	font-size: 14px !important
+}
+
+.MlineHeight14 {
+	line-height: 14px !important
+}
+
+.MfontSize16 {
+	font-size: 16px !important
+}
+
+.MlineHeight16 {
+	line-height: 16px !important
+}
+
+.MfontSize18 {
+	font-size: 18px !important
+}
+
+.MlineHeight18 {
+	line-height: 18px !important
+}
+
+.MfontSize20 {
+	font-size: 20px !important
+}
+
+.MlineHeight20 {
+	line-height: 20px !important
+}
+
+.MfontSize22 {
+	font-size: 22px !important
+}
+
+.MlineHeight22 {
+	line-height: 22px !important
+}
+
+.MfontSize24 {
+	font-size: 24px !important
+}
+
+.MlineHeight24 {
+	line-height: 24px !important
+}
+
+.MfontSize26 {
+	font-size: 26px !important
+}
+
+.MlineHeight26 {
+	line-height: 26px !important
+}
+
+.MfontSize28 {
+	font-size: 28px !important
+}
+
+.MlineHeight28 {
+	line-height: 28px !important
+}
+
+.MfontSize30 {
+	font-size: 30px !important
+}
+
+.MlineHeight30 {
+	line-height: 30px !important
+}
+
+.Mcolor1 {
+	color: #111 !important
+}
+
+.Mcolor2 {
+	color: #222 !important
+}
+
+.Mcolor3 {
+	color: #333 !important
+}
+
+.Mcolor4 {
+	color: #444 !important
+}
+
+.Mcolor5 {
+	color: #555 !important
+}
+
+.Mcolor6 {
+	color: #666 !important
+}
+
+.Mcolor7 {
+	color: #777 !important
+}
+
+.Mcolor8 {
+	color: #888 !important
+}
+
+.Mcolor9 {
+	color: #999 !important
+}
+
+.McolorA {
+	color: #aaaaaa !important
+}
+
+.McolorB {
+	color: #bbbbbb !important
+}
+
+.McolorC {
+	color: #cccccc !important
+}
+
+.McolorD {
+	color: #dddddd !important
+}
+
+.McolorE {
+	color: #eeeeee !important
+}
+/*# sourceMappingURL=style.adv.css.map */

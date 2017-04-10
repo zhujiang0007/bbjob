@@ -1,0 +1,138 @@
+<!--content-heading start-->
+<h3>
+	<em class="fa fa-table"></em>
+	ngTable 展示
+</h3>
+<!--content-heading end-->
+
+<!--content-body start-->
+	<!-- search start -->
+<form  class="form-horizontal">
+	<div id="panelDemo3" class="panel">
+		<div ng-class="{'panel-heading-collapsed':panelDemo3}"
+			class="panel-body">
+
+			<div class="col-sm-9">
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group Mmargin0">
+						<label class=" MselectLabel" for="">小区名称</label> 
+						<select
+							m-select2 
+							class="form-control" 
+							ms-key-to-the-value="y,x"
+							ms-model="searchfilters.commId" 
+							ms-options="setData.comm"
+							ms-allowclear="true" 
+							ms-placeholder="请选择小区" 
+							ms-onchange="changecomm(searchfilters.commId)">
+						</select>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group Mmargin0">
+						<label class=" MselectLabel" for="">楼宇名称</label>
+						<select
+							m-select2 
+							class="form-control" 
+							ms-key-to-the-value="y,x"
+							ms-model="searchfilters.buildingId" 
+							ms-options="setData.building"
+							ms-allowclear="true" 
+							ms-placeholder="请选择楼宇" 
+							ms-onchange="changebuild(searchfilters.commId, searchfilters.buildingId)">
+						</select>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group Mmargin0">
+						<label class=" MselectLabel" for="">单元</label> 
+						<select
+							m-select2 class="form-control" 
+							ms-key-to-the-value="y,x"
+							ms-model="searchfilters.unitNo" 
+							ms-options="setData.unit"
+							ms-allowclear="true" 
+							ms-placeholder="请选择单元" 
+							ms-onchange="changeunit(searchfilters.commId, searchfilters.buildingId, searchfilters.unitNo)">
+						</select>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group Mmargin0">
+						<label class=" MselectLabel" for="">门牌号</label>
+						<select
+							m-select2 
+							class="form-control" 
+							ms-key-to-the-value="y,x"
+							ms-model="searchfilters.houseNo" 
+							ms-options="setData.house"
+							ms-allowclear="true" 
+							ms-placeholder="请选择门牌号">
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="pull-right">
+				<button class="btn btn-default textwhite ml10 pull-left  MtextBlueLight MbtnR MmarginRight10" type="button" ng-click="search()">
+					<span class="icon icon-refresh"></span>
+					查询
+				</button>
+				
+				<button class="btn btn-default textwhite ml10 pull-left MtextBlueLight MbtnR MmarginRight10" type="button" ng-click="resetSearchBar()">
+					<span class="icon icon-hourglass"></span>
+					重置
+				</button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+	</div>
+</form>
+	<!-- search end -->
+	<!--ngTable start-->
+<div class="panel">
+		<div class="panel-heading">
+			<div class="pull-right pl-sm">
+				<button type="button" class="btn btn-danger bg-danger-light"
+					ng-click="delete()">删除</button>
+			</div>
+			<div class="pull-right pl-sm">
+				<button type="button" class="btn btn-warning bg-warning-light"
+					ng-click="edit()">修改</button>
+			</div>
+			<div class="pull-right pl-sm">
+				<button type="button" class="btn btn-info bg-info-light"
+					ng-click="add()">新增</button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<!-- START table-responsive-->
+		<div class="panel-body MpaddingTop0">
+			<table class="table  table-bordered table-striped table-hover Mtable"
+					ng-table="ngTable.tableParams" show-filter="false" 
+					ng-table-columns-binding="ngTable.cols">
+				<tbody>
+					<tr ng-repeat="info in $data"
+						ng-click="info.$selected = !info.$selected; clickRow(info)"
+						ng-class="{'active': info.$selected}">
+						
+						<td title="'小区名称'" ng-if="true">{{info.commName}}</td>
+						
+						<td title="'门牌号'" ng-if="true"><a href="javascript:void(0)">{{info.houseName}}</a></td>
+							
+						<td title="'房屋面积'" ng-if="true">{{info.houseArea}}</td>
+						
+						<td title="'房屋性质'" ng-if="true">{{info.houseStatus == 1 ? "自用" : (info.houseStatus == 2 ? "租贸" : "") }}</td>
+							
+						<td title="'户型'" ng-if="true">{{info.f1}}</td>
+						
+						<td title="'是否入住'" ng-if="true">{{info.ownerno > 0 ? "是" : 	"否" }}</td>
+							
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!--ngTable end-->
+<!--content-body end-->

@@ -1,0 +1,141 @@
+@charset 'utf-8';
+//------------------------------------变量------------------------------------
+// 加载等待的PNG 
+$preloaderImg: url('../img/preloader/preloaderImg.png');
+$preloaderImgBar: url('../img/preloader/preloaderImg.full.png');
+$preloaderWidth: 190px;
+$preloaderHeight: 34px;
+
+//全局默认font
+$bodyFontFamily: angle,"Source Sans Pro",sans-serif, '微软雅黑', 'Microsoft Yahei',"Hiragino Sans GB",tahoma,arial,"宋体" !important;
+$bodyFontSize: 12px;
+$bodyFontColor: #999;
+
+//input 全局
+$inputHeight: 34px;//input 高度
+
+//Mtable 全局样式
+$MtableThFontSize: 14px;//table标题大小
+$MtableThFontColor: #bbb;//table标题颜色
+$MtableThFontWeight: true;//table标题加粗 true or false
+$MtableThLineHeight: 18px;//table标题行高
+$MtableThPaddingTB: 10px;//table标题paddingtop和bottom
+
+$MtableTdFontSize: 12px;//table内容文字大小
+$MtableTdFontColor: #777;//table内容文字颜色
+$MtableTdFontWeight: false;//table内容加粗 true or false
+$MtableTdLineHeight: 18px;//table内容行高
+
+$MtableTdAColor: #0166ce;//A链接的颜色
+
+
+
+//------------------------------------样式------------------------------------
+/* 加载等待的PNG */
+.preloader-progress     { 
+    background-image: $preloaderImg !important; 
+    background-size:$preloaderWidth $preloaderHeight !important; 
+    height:$preloaderHeight !important;
+    width: $preloaderWidth; }
+.preloader-progress-bar { 
+    background-image: $preloaderImgBar !important; 
+    background-size:$preloaderWidth $preloaderHeight !important; 
+    height:$preloaderHeight !important;
+    width: $preloaderWidth; }
+/* 全局默认font */
+body{
+    /*font-family: $bodyFontFamily;
+    font-size: $bodyFontSize;
+    color: $bodyFontColor;*/
+}
+/* 页面头部样式 */
+.content-wrapper>.content-heading{
+    color: #aaa !important;
+    font-size: 18px !important;
+    font-weight: bold;
+}
+ /*input Reset*/
+ input.form-control{height: $inputHeight !important;}
+.btn:not(.btn-sm):not(.btn-lg):not(.btn-xs):not(.btn-md) {height: $inputHeight !important;}
+
+/* table样式 */
+
+.Mtable tr th * , .Mtable thead tr th * {
+    font-size:$MtableThFontSize !important;
+    color:$MtableThFontColor !important;
+    @if $MtableThFontWeight == true {
+    font-weight: bold !important;
+    } @else {
+    font-weight: normal !important;
+    }
+    text-align: center !important;
+    line-height: $MtableThLineHeight !important;
+    }
+.Mtable tr td, .Mtable tbody tr td{
+    font-size:$MtableTdFontSize !important;
+    color: $MtableTdFontColor !important;
+    @if $MtableTdFontWeight == true {
+    font-weight: bold !important;
+    } @else {
+    font-weight: normal !important;
+    }
+    text-align: center !important;
+    line-height: $MtableTdLineHeight !important;
+    }
+.Mtable tr td  a , .Mtable tbody tr td a {
+    color: $MtableTdAColor !important;
+}
+.Mtable tr th, .Mtable thead tr th{
+    padding-top:  $MtableThPaddingTB !important;
+    padding-bottom: $MtableThPaddingTB !important;
+    font-size:$MtableThFontSize !important;
+    color:$MtableThFontColor !important;
+    @if $MtableThFontWeight == true {
+    font-weight: bold !important;
+    } @else {
+    font-weight: normal !important;
+    }
+    text-align: center !important;
+    line-height: $MtableThLineHeight !important;
+}
+/* 文字溢出 */
+.textOver{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+//------------------------------------for------------------------------------
+/* width  auto  1%-100% */
+.MwidthAuto{ width: auto !important; }
+@for $i from 0 to 100 {
+     .Mwidth#{$i} { width: $i*1% !important; }
+}
+
+/* height  auto  1%-100% */
+.MheightAuto{ height: auto !important; }
+@for $i from 0 to 100 {
+    .Mheight#{$i} { height: $i*1% !important; }
+}
+
+/* margin */
+.Mmargin0 {margin: 0 !important;}
+@for $i from 0 to 5 {
+    .MmarginTop#{$i*10}    { margin-top: $i*10px    !important; }
+    .MmarginBottom#{$i*10} { margin-bottom: $i*10px !important; }
+    .MmarginLeft#{$i*10}   { margin-left: $i*10px   !important; }
+    .MmarginRight#{$i*10}  { margin-right: $i*10px  !important; }
+}
+/* padding */
+.Mpadding0{padding: 0 !important;}
+@for $i from 0 to 5 {
+    .MpaddingTop#{$i*10}    { padding-top: $i*10px    !important; }
+    .MpaddingBottom#{$i*10} { padding-bottom: $i*10px !important; }
+    .MpaddingLeft#{$i*10}   { padding-left: $i*10px   !important; }
+    .MpaddingRight#{$i*10}  { padding-right: $i*10px  !important; }
+}
+
+/* fontsize and lineheight */
+@for $i from 6 to 15 {
+    .MfontSize#{$i*2}     { font-size: $i*2px !important;}
+    .MlineHeight#{$i*2}     { line-height: $i*2px !important;}
+}

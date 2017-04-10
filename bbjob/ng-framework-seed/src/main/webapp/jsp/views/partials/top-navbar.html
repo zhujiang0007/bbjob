@@ -1,0 +1,261 @@
+<style type="text/css">
+.headerNav {
+	min-width: 1200px;
+}
+
+#mainNav li a {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#mainNavContainer {
+	height: 50px;
+	width: 60%;
+	float: left;
+	height: 55px;
+	position: relative;
+	padding-right: 20px;
+	overflow: hidden; 
+}
+
+
+#mainNav {
+	border-left-width:1px;
+	border-left-style:solid;
+	border-left-color:rgba(255,255,255,0);
+}
+
+.arrow_animate {
+	transform: rotate(180deg);
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-moz-transform: rotate(180deg); /* Firefox */
+	-webkit-transform: rotate(180deg); /* Safari 和 Chrome */
+	-o-transform: rotate(180deg); /* Opera */
+}
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: auto;
+}
+.topNavArrowGroup{
+position:absolute;
+right:0;
+top:8px;
+display:none;
+}
+.topNavArrowGroup>.btn{
+	width: 20px;
+	height: 20px !important;
+	padding: 0;
+	display: block;
+	font-size:10px;
+}
+.topNavArrowGroup>.btn:nth-child(1){
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.topNavArrowGroup>.btn:nth-child(2){
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+@media (max-width: 1400px){
+	#mainNavContainer {
+		width: 50%;
+	}
+}
+@media (max-width: 1200px){
+	#mainNavContainer {
+		width: 40%;
+	}
+}
+@media (max-width: 890px){
+	#mainNavContainer {
+		width: 30%;
+	}
+}
+@media (max-width: 768px){
+	#mainNavContainer {
+		width: 50%;
+	}
+	#mainNavContainer>ul>li{
+	margin: 8.5px 0;
+	}
+	#mainNavContainer>ul{
+	margin-left: 0;
+	}
+}
+#mainNavContainer #mainNav li>.aActive,#mainNavContainer #mainNav li>a:hover{
+	background-color: rgba(0, 0, 0, .08);
+	color:#fff;
+}
+</style>
+<!--top navbar-->
+<!-- START Top Navbar-->
+<nav role="navigation" class="navbar topnavbar">
+	<!-- START navbar header-->
+	<div class="navbar-header">
+		<a ng-href="jsp/index.jsp#" class="navbar-brand">
+			<div class="brand-logo">
+				<!-- <img src="app/img/logo.png" alt="App Logo" class="img-responsive"> -->
+            <img src="{{'app/img/logo/rundaLogo.png'||'http://www.atool.org/placeholder.png?size=190x34&text=Logo&&bg=c7c7c7&fg=fff'}}" 
+            	alt="App Logo" class="img-responsive" />
+			</div>
+			<div class="brand-logo-collapsed">
+            <img src="{{'app/img/logo/rundaLogo-xs.png'||'http://www.atool.org/placeholder.png?size=40x42&text=Logo&&bg=c7c7c7&fg=fff'}}"
+            	 alt="App Logo" class="img-responsive" />
+			</div>
+		</a>
+	</div>
+	<!-- END navbar header-->
+	<!-- START Nav wrapper-->
+	<div class="nav-wrapper">
+		<!-- START Left navbar-->
+		<ul class="nav navbar-nav topdh">
+			<li>
+				<!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+				<a href="javascript:void(0);" data-trigger-resize=""
+				   ng-click="app.layout.isCollapsed = !app.layout.isCollapsed" class="hidden-xs"> <em
+					class="fa fa-navicon"></em>
+			</a> <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+				<a href="javascript:void(0);" ng-click="app.asideToggled = !app.asideToggled"
+				   class="visible-xs sidebar-toggle"> <em
+					class="fa fa-navicon"></em>
+					
+			</a>
+			</li>
+
+			<!-- START User avatar toggle-->
+			<!--<li>
+				<a id="user-block-toggle" href="#user-block" data-toggle="collapse">
+					<em class="icon-user"></em> 用户名
+			</a>
+			</li>-->
+			<!-- END User avatar toggle-->
+			<!-- START lock screen-->
+
+			<!-- END lock screen-->
+		</ul>
+
+		<div id="mainNavContainer">
+			<ul class="nav navbar-nav topdh" id="mainNav" top-nav top-nav-menu="menuItems" >
+				<!-- <li><a ng-href="jsp/index.jsp#">首页</a></li> -->
+				<li ng-repeat="item in menuItems"
+					ng-class="{'active':isActive($index)}"><a href="javascript:void(0);"
+					ng-class="{'aActive':isActive($index)}"
+					ng-click="menuClick($index)">{{item.purviewName}}</a></li>
+			</ul>
+			<!-- <div class="topNavArrowGroup">
+				<button type="button" ng-disabled="" class="btn btn-info"><i class="icon-arrow-up"></i></button>
+				<button type="button" ng-disabled="" class="btn btn-info"><i class="icon-arrow-down"></i></button>
+			</div> -->
+		</div>
+
+		<!-- <ul class="nav navbar-nav ">
+			<li><a class="btn btn-link btn_more" href="javascript:void(0);"
+				onclick="arrowClick()"> <span>更多 </span> <em
+					class="icon-arrow-down" id="arrowTB" style="display: inline-block;"></em>
+			</a></li>
+		</ul> -->
+		<div class="pull-left mt-lg "></div>
+		<!-- END Left navbar-->
+
+		<!-- START Right Navbar-->
+		<ul class="nav navbar-nav navbar-right">
+			<!-- Search icon-->
+			<li><a href="javascript:void(0);" data-search-open=""> <em
+					class="icon-magnifier"></em>
+			</a></li>
+			<!-- Fullscreen (only desktops)-->
+			<li class="visible-lg"><a href="javascript:void(0);"
+				data-toggle-fullscreen=""> <em class="fa fa-expand"></em>
+			</a></li>
+			<!-- START Alert menu-->
+			<li class="dropdown dropdown-list mr-lg"><a
+				href="javascript:void(0);" data-toggle="dropdown"> <em
+					class="icon-bell"></em>
+					<div class="label label-danger">{{ noticeCount }}</div>
+			</a> <!-- START Dropdown menu-->
+				<ul class="dropdown-menu animated flipInX" ng-show="noticeCount > 0">
+					<li>
+						<!-- START list group-->
+						<div class="list-group">
+							<!-- list item-->
+							<!-- list item-->
+							<a href="javascript:void(0);"
+							 	class="list-group-item" ng-repeat="x in noticeItems">
+								<div class="media-box" ng-click="noticeDetail($index)">
+									<div class="pull-left">
+										<em class="fa fa-envelope fa-2x text-warning"></em>
+									</div>
+									<div class="media-box-body clearfix">
+										<p class="m0">{{ x.noticeType ==  1 ? '系统通知' : x.f1 }}</p>
+										<p class="m0 text-muted">
+											<small>
+												<div style="max-height:20px;">{{ x.noticeContent }}</div>
+											</small>
+										</p>
+									</div>
+								</div>
+							</a>
+							<!-- list item-->
+							<!-- last list item-->
+							<a href="javascript:void(0);" ng-click="goNoticeList()" class="list-group-item" ng-show="noticeCount > 3"> <small>更多消息</small> <span class="label label-danger pull-right">{{ noticeCount -3 }}</span>
+							</a>
+						</div> <!-- END list group-->
+					</li>
+				</ul> <!-- END Dropdown menu--></li>
+			<!-- END Alert menu-->
+			
+			
+         <!-- START Offsidebar button-->
+         <li>
+            <a href="" ng-click="app.layout.isThemeCollapsed = !app.layout.isThemeCollapsed" title="主题">
+               <em class="icon-grid"></em>
+            </a>
+         </li>
+         <!-- END Offsidebar menu-->
+
+		</ul>
+		<!-- END Right Navbar-->
+	</div>
+	<!-- END Nav wrapper-->
+	<!-- START Search form-->
+	<form role="search" action="search.html" class="navbar-form">
+		<div class="form-group has-feedback">
+			<input type="text" placeholder="Type and hit enter ..."
+				class="form-control">
+			<div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
+		</div>
+		<button type="submit" class="hidden btn btn-default">Submit</button>
+	</form>
+	<!-- END Search form-->
+</nav>
+<!-- END Top Navbar-->
+<!--top navbar//-->
+<script type="text/javascript">
+	var aNum = 0;
+	function arrowClick() {
+		if (aNum == 0) {
+			$("#arrowTB").siblings("span").text("返回");
+			$("#arrowTB").addClass("arrow_animate");
+			$("#mainNav").animate({
+				marginTop : -55
+			}, 300)
+			aNum = 1;
+		} else if (aNum == 1) {
+			$("#arrowTB").siblings("span").text("更多")
+			$("#arrowTB").removeClass("arrow_animate");
+			$("#mainNav").animate({
+				marginTop : 0
+			}, 300)
+			aNum = 0;
+		}
+	}
+	$(".btn_more").mouseover(function() {
+		$(this).css({
+			color : "#117391"
+		})
+	}).mouseleave(function() {
+		$(this).css({
+			color : "#fff"
+		})
+	})
+</script>

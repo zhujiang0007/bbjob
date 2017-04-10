@@ -1,0 +1,164 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h4 class="modal-title MtextGray" id="myModalLabel">{{dialogTitle}}</h4>
+	</div>
+	<div class="modal-body MpaddingTop0">
+		<form name="addForm" novalidate="" class="form-horizontal">
+			<div class="row col-sm-11">
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>所属小区</label>
+						<div class="col-sm-8" ng-if="!changeIf">
+							<select m-select2 class="form-control"
+								ms-key-to-the-value="y,x" ms-model="newTpls.commId"
+								ms-options="add.comm" ms-allowclear="true" 
+								ms-placeholder="请选择小区" ms-onchange="changecomm(newTpls.commId)">
+								</select>
+						</div>
+						<label ng-if="changeIf" class="col-sm-8 control-label pr0 text-left pt-sm MselectLabelc ng-binding" style="text-align:left;">{{newTpls.commId}}</label>
+					</div>
+				</div>
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>所属楼宇</label>
+						<div class="col-sm-8" ng-if="!changeIf">
+							<select m-select2 class="form-control"
+								ms-key-to-the-value="y,x" ms-model="newTpls.buildingId"
+								ms-options="add.building" ms-allowclear="true" 
+								ms-placeholder="请选择楼宇" ms-onchange="changebuild(newTpls.commId, newTpls.buildingId)">
+								</select>
+						</div>
+						<label ng-if="changeIf" class="col-sm-8 control-label pr0 text-left pt-sm MselectLabelc ng-binding" style="text-align:left;">{{newTpls.buildingId}}</label>
+					</div>
+				</div>
+			</div>
+			<div class="row col-sm-11 ">
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>所属单元</label>
+						<div class="col-sm-8" ng-if="!changeIf">
+							<select m-select2 class="form-control"
+								ms-key-to-the-value="y,x" ms-model="newTpls.unitNo"
+								ms-options="add.unit" ms-allowclear="true" 
+								ms-placeholder="请选择单元">
+							</select>
+						</div>
+						<label ng-if="changeIf" class="col-sm-8 control-label pr0 text-left pt-sm MselectLabelc ng-binding" style="text-align:left;">{{newTpls.unitNo}}</label>
+					</div>
+				</div>
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>门牌号</label>
+						<div class="col-sm-8">
+							<input class="form-control Minput" type="number" placeholder="请填写门牌号"
+								name="houseNo" maxlength="16" ng-model="newTpls.houseNo"
+								 />
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="row col-sm-11 ">
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>房屋性质</label>
+						<div class="col-sm-8">
+							<select m-select2 class="form-control"
+								ms-key-to-the-value="y,x" ms-model="newTpls.houseProperty"
+								ms-options="add.propertysel" ms-allowclear="true" 
+								ms-placeholder="请选择房屋性质">
+							</select>	
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 mt-lg" ng-show="newTpls.houseProperty=='sp'">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc">店铺名称</label>
+						<div class="col-sm-8">
+							<input class="form-control Minput" type="text" placeholder="请填写店铺名称"
+								name="storeName" ng-model="newTpls.storeName" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row col-sm-11 ">
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>所在楼层</label>
+						<div class="col-sm-8">
+							<input class="form-control Minput" type="number" placeholder="请填写所在楼层"
+								name="floorNo" ng-model="newTpls.floorNo"  />
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>房屋面积</label>
+						<div class="col-sm-8">
+							<input class="form-control Minput" type="number" placeholder="请填写所在楼层"
+								name="houseArea" ng-model="newTpls.houseArea"  />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row col-sm-11 ">
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>房屋现状</label>
+						<div class="col-sm-8">
+							<select m-select2 class="form-control"
+								ms-key-to-the-value="y,x" ms-model="newTpls.houseStatus"
+								ms-options="add.statussel" ms-allowclear="true" 
+								ms-placeholder="请选择房屋现状">
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>房屋户型</label>
+						<div class="col-sm-8">
+							<select m-select2 class="form-control"
+								ms-key-to-the-value="y,x" ms-model="newTpls.houseStructure"
+								ms-options="add.structuresel" ms-allowclear="true" 
+								ms-placeholder="请选择房屋现状">
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row col-sm-11 ">
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-2 control-label pr0 text-right pt-sm MselectLabelc">备注</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" type="text" name="remark"
+								ng-model="newTpls.remark"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</form>
+	</div>
+	<div class="modal-footer ">
+
+		<div class="col-lg-2 col-lg-offset-4">
+			<button class="btn btn-block btn-info mt-lg mb-lg"
+				ng-click="save(dialogTitle)">保存</button>
+		</div>
+		<div class="col-lg-2">
+			<button class="btn btn-block btn-default mt-lg mb-lg"
+				ng-click="close()">关闭</button>
+		</div>
+	</div>
+</div>
