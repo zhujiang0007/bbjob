@@ -40,7 +40,6 @@ public abstract class BaseService<T> implements IService<T> {
         return mapper;
     }
 
-    @Override
     public T selectByKey(Object key) {
         return mapper.selectByPrimaryKey(key);
     }

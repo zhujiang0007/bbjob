@@ -22,7 +22,6 @@ public class ImageUtil {
 	/*
 	 * flag:如果flag=true，考虑ue配置问题，否则忽略
 	 */
-	 @SuppressWarnings("restriction")
 	public static File resize(File originalFile, File resizedFile,  
 	            int newWidth, float quality,boolean flag) throws IOException {  
 	  

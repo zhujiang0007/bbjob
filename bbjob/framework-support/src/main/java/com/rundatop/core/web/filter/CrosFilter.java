@@ -10,9 +10,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Component;
-import org.springframework.web.filter.GenericFilterBean;
-@Component(value="crosFilter")
 public class CrosFilter implements Filter{
 
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
@@ -30,8 +27,7 @@ public class CrosFilter implements Filter{
 
 
 
-	public void init(FilterConfig filterConfig) throws ServletException {
-	
+	public void init(FilterConfig filterConfig) throws ServletException {	
 	}
 
 
