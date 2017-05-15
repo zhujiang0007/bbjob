@@ -378,5 +378,6 @@
  	<module>bbjob_system</module>
  	<module>bbjob_security</module>
  	<module>ng-framework-seed</module>
+ 	<module>bbjob_system_job</module>
  </modules>
 </project>

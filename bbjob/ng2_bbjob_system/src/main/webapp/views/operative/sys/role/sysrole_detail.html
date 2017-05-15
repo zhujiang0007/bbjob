@@ -1,0 +1,115 @@
+<!--content-heading start-->
+<h3>
+	<em class="icon-user"></em>
+	角色信息
+	<a ui-sref="app.sysrole" class="btn btn-default MtextBlueLight pull-right btn-oval"><i class="icon-action-undo"></i> 返回</a>
+</h3>
+<!--content-heading end-->
+
+<!--content-body start-->
+<form  class="form-horizontal">
+<!-- PanelTool Start -->
+	<div id="userMsg" class="panel">
+	    <div ng-class="{'panel-heading-collapsed':userMsg}" class="panel-heading">
+	    		角色详情
+	     <paneltool tool-collapse="tool-collapse" 
+	        	tool-dismiss="tool-dismiss" ng-init="userMsg=false"></paneltool>
+	    </div>
+		<div uib-collapse="userMsg" class="panel-wrapper">
+			<div class="panel-body MpaddingTop5">
+				<table class="table table-bordered">
+	                  <tr>
+	                   <td class="wuyuan Mcolor8" width="8%" style="text-align: right">角色名称</td>
+	                   <td width="25%">
+	                   	<span class="form-control text-left">{{role.roleName}}</span>
+	                 	</td>
+	                   <td class="wuyuan Mcolor8" width="8%" style="text-align: right">备注</td>
+	                   <td width="25%">
+	                   	<span class="form-control text-left">{{role.remark}}</span>
+	                   </td>
+	                   <td class="wuyuan Mcolor8" width="9%" style="text-align: right">角色状态</td>
+	                   <td width="25%">
+	                   	<span class="form-control text-left">{{role.enable==1?"启用":"停用"}}</span>
+	                   </td>
+	                  </tr>  
+				</table>
+			</div>
+		</div>
+	</div>
+<!-- PanelTool End -->
+<!-- PanelTool Start -->
+	<div id="roleFunction" class="panel ">
+           <div ng-class="{'panel-heading-collapsed':panelDemo}" class="panel-heading">
+           		角色权限设置
+	           <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" ng-init="roleFunction=false"></paneltool>
+           </div>
+           
+           <div uib-collapse="roleFunction" class="panel-wrapper">
+					 <div class="row">
+					 	<style>
+					 	.animate-repeat {
+					 		opacity: 1;
+					 		margin-left:0;
+							}
+							
+						.animate-repeat.ng-move,
+						.animate-repeat.ng-enter {
+						  transition:all linear 0.5s;
+						  -webkit-transition:all linear 0.5s;
+						  -moz-transition:all linear 0.5s;
+						}
+						
+						.animate-repeat.ng-leave.ng-leave-active,
+						.animate-repeat.ng-move,
+						.animate-repeat.ng-enter {
+						  opacity:0;
+						}
+						.animate-repeat.ng-enter.ng-enter-active {
+						  opacity:1;
+						  transition:all linear 0.5s;
+						  -webkit-transition:all linear 0.5s;
+						  -moz-transition:all linear 0.5s;
+						}
+					 	</style>
+					 	<div ng-repeat="pan in functions" class="col-lg-4" ng-init="func=pan">
+					 			<div id="function{{pan.id}}" class="panel"  ng-controller="userfuncpanelController">
+					 				 <div ng-class="{'panel-heading-collapsed':panelDemo}" class="panel-heading">
+							           		{{pan.name}}
+								         <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" ></paneltool>
+							         </div>
+							         <div uib-collapse="function{{pan.id}}" class="panel-wrapper">
+							         	<div class="panel-body" style="min-height: 300px;">
+                 							<div ng-repeat="fun in funcList" class="col-sm-6 animate-repeat">	
+                 								<div class="checkbox c-checkbox pull-left" >
+													<label>
+														<input checked="" type="checkbox" ng-click="funChange(fun)" ng-model="fun.checked" ng-true-value="true" ng-false-value="false">
+														<span class="fa fa-check"></span>
+														<a ng-if="fun.type!=4" href="javascript:;" ng-click="goFunctionPage(fun)">{{fun.name}}</a>
+														{{fun.type==4?fun.name:""}}
+													</label>
+													
+												</div>
+											</div>
+							            </div>
+							            <div class="panel-footer">
+							            <span ng-repeat="foot in footList">
+							            /<a  href="javascript:void(0)" ng-click="goFunctionPage(foot)">{{foot.name}}</a>
+							            </span>
+							            
+							            </div>
+							         </div> 
+							         
+					 			</div>
+					 			
+					 		
+					 	</div>
+					 	
+					 </div>	
+						
+						
+						
+						
+		   </div>
+	</div>
+<!-- PanelTool End -->
+<!-- Nested node template -->

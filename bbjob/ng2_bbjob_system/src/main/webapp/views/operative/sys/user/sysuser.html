@@ -1,0 +1,137 @@
+<!--content-heading start-->
+<h3>
+	<em class="icon-user"></em>
+	user 展示
+</h3>
+<!--content-heading end-->
+
+<!-- 搜索区域 start -->
+
+	<form class="form-horizontal">
+		<div id="panelDemo3" class="panel">
+			<div ng-class="{'panel-heading-collapsed':panelDemo3}"
+				class="panel-body">
+				<div class="col-sm-9">
+					<div class="col-sm-3">
+						<div class="form-group Mmargin0">
+								<label
+								class=" MselectLabel"
+								for="">状态</label> <select m-select2 class="form-control" ms-key-to-the-value="y,x"
+								ms-model="selffilters.enable" ms-options="statussel"
+								ms-allowclear="true" ms-placeholder="请选择状态">
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-3">
+							<div class="form-group Mmargin0">
+								<label
+								class=" MselectLabel"
+								for="">账号</label>
+									<input type="text" id="account" name="account" class="form-control Minput" placeholder="请输入姓名"
+										ng-model="selffilters.username">
+
+							</div>
+						</div>
+
+						<div class="col-sm-3">
+							<div class="form-group Mmargin0">
+								<label
+								class=" MselectLabel"
+								for="">电话</label>
+									<input type="text" id="phone" class="form-control Minput" placeholder="请输入电话"
+										ng-model="selffilters.phone">
+
+							</div>
+						</div>
+					
+				</div>
+
+<!-- 				<paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss"
+					ng-init="panelDemo3=true"></paneltool> -->
+
+				<div class="pull-left mr-lg mt-lg">
+					<button
+						class="btn btn-default textwhite ml10 pull-left  MtextBlueLight MbtnR MmarginRight10"
+						type="button" ng-click="search()">
+						<span class="icon icon-refresh"></span> 查询
+					</button>
+					<button
+						class="btn btn-default textwhite ml10 pull-left MtextBlueLight MbtnR MmarginRight10"
+						type="button" ng-click="resetSearchBar()">
+						<span class="icon icon-hourglass"></span> 重置
+					</button>
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		
+			</div>
+		</div>
+	</form>
+
+
+
+
+
+
+<!-- 搜索区域 end -->
+
+
+<!--content-body start-->
+<form  class="form-horizontal">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel">
+				<div class="panel-heading">
+					<div class="pull-right pl-sm">
+						<button type="button" class="btn btn-danger bg-danger-light"
+							ng-click="del()">删除</button>
+					</div>
+					<div class="pull-right pl-sm">
+						<button type="button" class="btn btn-warning bg-warning-light"
+							ng-click="edit()">修改</button>
+					</div>
+					<div class="pull-right pl-sm">
+						<button type="button" class="btn btn-info bg-info-light"
+							ng-click="add()">新增</button>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!-- START table-responsive-->
+				<div class="panel-body MpaddingTop0">
+					<table class="table  table-bordered table-striped table-hover Mtable"
+							ng-table="sysuser.tableParams" 
+							ng-table-columns-binding="sysuser.cols" 
+							>
+						<tbody
+							ms-table-nothing 
+							ms-table-data="$data" 
+							ms-table-length="6"
+							ms-nothing-img="js/modules/server/tableNothing.directive/table_nothing_cry.png">
+							<tr ng-repeat="info in $data"
+								ng-click="info.$selected = !info.$selected; clickRow(info)"
+								ng-class="{'active': info.$selected}">
+								
+								<td title="'用户名'" ng-if="true"><a ng-click="rowdetail(info)">{{info.username}}</a></td>
+								
+								<td title="'邮箱'" ng-if="true" >{{info.email}}</td>
+									
+								<td title="'电话'" ng-if="true">{{info.phone}}</td>
+								
+								<td title="'状态'" ng-if="true" >{{info.enable==1?"启用":"禁用"}}</td>
+								
+								<td title="'创建时间'" ng-if="true">{{info.createTime | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+								
+								<td title="'操作'" ng-if="true">
+									<a href="javascript:void(0)" ng-click='changeEnable(info.id,(info.enable==1?0:1))'>{{info.enable==1?"禁用":"启用"}}</a>&nbsp;
+									<a href="javascript:void(0)" ng-click='reset(info.id)'>重置</a>
+								</td>	
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!--content-body end-->

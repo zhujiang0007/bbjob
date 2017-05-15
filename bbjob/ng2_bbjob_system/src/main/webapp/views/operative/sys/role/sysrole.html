@@ -1,0 +1,113 @@
+<!--content-heading start-->
+<h3>
+	<em class="icon-user-following"></em>
+	角色管理
+</h3>
+<!--content-heading end-->
+
+<!-- 搜索区域 start -->
+
+	<form class="form-horizontal">
+		<div id="panelDemo3" class="panel">
+			<div ng-class="{'panel-heading-collapsed':panelDemo3}"
+				class="panel-body">
+				<div class="col-sm-9">
+					
+					<div class="col-sm-3">
+							<div class="form-group Mmargin0">
+								<label
+								class=" MselectLabel"
+								for="">角色名称</label>
+									<input type="text" id="roleName" name="roleName" class="form-control Minput" placeholder="请输入角色名"
+										ng-model="selffilters.roleName">
+
+							</div>
+					</div>
+
+						
+					
+				</div>
+
+<!-- 				<paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss"
+					ng-init="panelDemo3=true"></paneltool> -->
+
+				<div class="pull-left mr-lg mt-lg">
+					<button
+						class="btn btn-default textwhite ml10 pull-left  MtextBlueLight MbtnR MmarginRight10"
+						type="button" ng-click="search()">
+						<span class="icon icon-refresh"></span> 查询
+					</button>
+					<button
+						class="btn btn-default textwhite ml10 pull-left MtextBlueLight MbtnR MmarginRight10"
+						type="button" ng-click="resetSearchBar()">
+						<span class="icon icon-hourglass"></span> 重置
+					</button>
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+		
+			</div>
+		</div>
+	</form>
+
+
+
+
+
+
+<!-- 搜索区域 end -->
+
+
+
+<!--content-body start-->
+<form  class="form-horizontal">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel">
+				<div class="panel-heading">
+					<div class="pull-right pl-sm">
+						<button type="button" class="btn btn-danger bg-danger-light"
+							ng-click="del()">删除</button>
+					</div>
+					<div class="pull-right pl-sm">
+						<button type="button" class="btn btn-warning bg-warning-light"
+							ng-click="edit()">修改</button>
+					</div>
+					<div class="pull-right pl-sm">
+						<button type="button" class="btn btn-info bg-info-light"
+							ng-click="add()">新增</button>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!-- START table-responsive-->
+				<div class="panel-body MpaddingTop0">
+					<table class="table  table-bordered table-striped table-hover Mtable"
+							ng-table="sysrole.tableParams"  
+							ng-table-columns-binding="sysrole.cols" 
+							>
+						<tbody
+							ms-table-nothing 
+							ms-table-data="$data" 
+							ms-table-length="4"
+							ms-nothing-img="js/modules/server/tableNothing.directive/table_nothing_cry.png">
+							<tr ng-repeat="info in $data"
+								ng-click="info.$selected = !info.$selected; clickRow(info)"
+								ng-class="{'active': info.$selected}">
+								
+								<td title="'角色名称'" ng-if="true" ><a ng-click="rowdetail(info)">{{info.roleName}}</a></td>
+								
+								<td title="'角色状态'" ng-if="true" >{{info.enable==1?"启用":"停用"}}</td>
+									
+								<td title="'备注'" ng-if="true" >{{info.remark}}</td>
+								
+									
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!--content-body end-->

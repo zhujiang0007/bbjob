@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>rundatop</groupId>
+    <artifactId>bbjob</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>ng2_bbjob_system</artifactId>
+  <packaging>war</packaging>
+  <name>ng2_bbjob_system</name>
+  <description>ng2_bbjob_system</description>
+  
+  <dependencies>
+		<dependency>
+			<groupId>rundatop</groupId>
+			<artifactId>framework-support</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>rundatop</groupId>
+			<artifactId>ng-framework-seed</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>rundatop</groupId>
+			<artifactId>bbjob_system</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>rundatop</groupId>
+			<artifactId>bbjob_security</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- 合并多个war -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+					<overlays>
+						<overlay>
+							<groupId>rundatop</groupId>
+							<artifactId>ng-framework-seed</artifactId>
+						</overlay>
+					</overlays>
+					
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

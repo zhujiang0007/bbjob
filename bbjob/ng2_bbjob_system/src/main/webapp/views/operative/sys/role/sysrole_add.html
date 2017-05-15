@@ -1,0 +1,43 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h4 class="modal-title MtextGray" id="myModalLabel">{{dialogTitle}}角色</h4>
+	</div>
+	<div class="modal-body MpaddingTop0">
+		<form name="addForm" novalidate="" class="form-horizontal">
+			<div class="row col-sm-11">
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>角色名称</label>
+						<div class="col-sm-8">
+							<input class="form-control Minput" type="text" placeholder="请输入角色名称"
+								name="rolename"  ng-model="newTpls.roleName"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>备注</label>
+						<div class="col-sm-8">
+							<input class="form-control Minput" type="text" placeholder="请输入电子邮箱"
+								name="remark"  ng-model="newTpls.remark"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</form>
+	</div>
+	<div class="modal-footer ">
+
+		<div class="col-lg-2 col-lg-offset-4">
+			<button class="btn btn-block btn-info mt-lg mb-lg"
+				ng-click="save(changeIf)">保存</button>
+		</div>
+		<div class="col-lg-2">
+			<button class="btn btn-block btn-default mt-lg mb-lg"
+				ng-click="close()">关闭</button>
+		</div>
+	</div>
+</div>

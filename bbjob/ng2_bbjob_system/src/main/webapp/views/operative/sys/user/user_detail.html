@@ -1,0 +1,199 @@
+<!--content-heading start-->
+<h3>
+	<em class="icon-user"></em>
+	用户详情
+	<a ui-sref="app.sysuser" class="btn btn-default MtextBlueLight pull-right btn-oval"><i class="icon-action-undo"></i> 返回</a>
+</h3>
+<!--content-heading end-->
+
+<!--content-body start-->
+<form  class="form-horizontal">
+<!-- PanelTool Start -->
+	<div id="userMsg" class="panel">
+	    <div ng-class="{'panel-heading-collapsed':userMsg}" class="panel-heading">
+	    		用户详情
+	     <paneltool tool-collapse="tool-collapse" 
+	        	tool-dismiss="tool-dismiss" ng-init="userMsg=false"></paneltool>
+	    </div>
+		<div uib-collapse="userMsg" class="panel-wrapper">
+			<div class="panel-body MpaddingTop5">
+				<table class="table table-bordered">
+	                  <tr>
+	                   <td class="wuyuan Mcolor8" width="8%" style="text-align: right">用户名</td>
+	                   <td width="25%">
+	                   	<span class="form-control text-left">{{user.userMsg.username}}</span>
+	                 	</td>
+	                   <td class="wuyuan Mcolor8" width="8%" style="text-align: right">邮箱</td>
+	                   <td width="25%">
+	                   	<span class="form-control text-left">{{user.userMsg.email}}</span>
+	                   </td>
+	                   <td class="wuyuan Mcolor8" width="9%" style="text-align: right">手机号码</td>
+	                   <td width="25%">
+	                   	<span class="form-control text-left">{{user.userMsg.phone}}</span>
+	                   </td>
+	                  </tr>  
+	                  <tr>
+	                   <td class="wuyuan Mcolor8" width="8%" style="text-align: right">启用状态</td>
+	                   <td width="25%" class="text-left">
+	                   	<span class="form-control text-left">{{info.enable==1?"启用":"禁用"}}</span>
+	                   </td>
+	                   <td class="wuyuan Mcolor8" width="8%" style="text-align: right">创建时间</td>
+	                   <td width="25%">
+	                   	<span class="form-control text-left">{{user.userMsg.createTime | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+	                   </td>
+	                  </tr>  
+				</table>
+			</div>
+		</div>
+	</div>
+<!-- PanelTool End -->
+	
+<!-- PanelTool Start -->
+	<div id="userRole" class="panel">
+           <div ng-class="{'panel-heading-collapsed':userRole}" class="panel-heading">
+           		用户角色
+	           <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" ng-init="userRole=false"></paneltool>
+           </div>
+			<div uib-collapse="userRole" class="panel-wrapper">
+				<div class="panel-body MpaddingTop5">
+					<div class="col-sm-5">
+						<h5 style="line-height:20px;">当前角色列表
+							<div class="checkbox c-checkbox pull-right" ng-click="roleAll('noAll')">
+							<label ng-init="">
+								<input checked="" type="checkbox" ng-model="isRole" ng-true-value="true" ng-false-value="false">
+								<span class="fa fa-check"></span>
+								全选
+							</label>
+							</div>
+							<div class="clearfix"></div>
+						</h5>
+						<div class="btnGroup">
+		                    <a class="list-group-item bt0" ng-click="roleClick(role)" ng-class="{'active': role.selected}"
+									ng-repeat="role in user.userRole" >
+			                    <!-- <span class="label label-purple pull-right">just now</span> -->
+			                    <em class="fa fa-asterisk mr"></em>
+			                    {{role.roleName}}
+			                    &nbsp;&nbsp;&nbsp;&nbsp;
+			                    <span class="McolorA" style="font-size:12px;" title="{{role.remark}}" text-over text-content="role.remark" text-row="1"></span>
+		                    </a>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="col-sm-10 col-sm-offset-1">
+						<h5 style="height:20px;"></h5>
+							<button class="btn btn-info bg-info-light btn-block MmarginTop40" ng-click="roleAdd()">
+								<span class="fa fa-plus"></span>
+								添加角色
+							</button>
+							<button class="btn btn-danger bg-danger-light btn-block MmarginTop40" ng-click="roleRemove()">
+								<span class="fa fa-close"></span>
+								移除角色
+							</button>
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<h5 style="line-height:20px;">全部角色列表
+							<div class="checkbox c-checkbox  pull-right" ng-click="roleAll('all')">
+							<label>
+								<input checked="" type="checkbox" ng-model="isRoleAll" ng-true-value="true" ng-false-value="false">
+								<span class="fa fa-check"></span>
+								全选
+							</label>
+							</div>
+						<div class="clearfix"></div>
+						</h5>
+						<div class="btnGroup">
+		                    <a class="list-group-item bt0" ng-click="roleAllClick(role)" ng-class="{'active': role.selected}"
+									ng-repeat="role in user.userRoleMsg" >
+			                    <!-- <span class="label label-purple pull-right">just now</span> -->
+			                    <em class="fa fa-asterisk mr"></em>
+			                    {{role.roleName}}
+			                    &nbsp;&nbsp;&nbsp;&nbsp;
+			                    <span class="McolorA" style="font-size:12px;" title="{{role.remark}}" text-over text-content="role.remark" text-row="1"></span>
+		                    </a>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+	</div>
+<!-- PanelTool End -->
+	
+<!-- PanelTool Start -->
+	<div id="userFunction" class="panel ">
+           <div ng-class="{'panel-heading-collapsed':panelDemo}" class="panel-heading">
+           		用户权限
+	           <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" ng-init="userFunction=false"></paneltool>
+           </div>
+           
+           <div uib-collapse="userFunction" class="panel-wrapper">
+					 <div class="row">
+					 	<style>
+					 	.animate-repeat {
+					 		opacity: 1;
+					 		margin-left:0;
+							}
+							
+						.animate-repeat.ng-move,
+						.animate-repeat.ng-enter {
+						  transition:all linear 0.5s;
+						  -webkit-transition:all linear 0.5s;
+						  -moz-transition:all linear 0.5s;
+						}
+						
+						.animate-repeat.ng-leave.ng-leave-active,
+						.animate-repeat.ng-move,
+						.animate-repeat.ng-enter {
+						  opacity:0;
+						}
+						.animate-repeat.ng-enter.ng-enter-active {
+						  opacity:1;
+						  transition:all linear 0.5s;
+						  -webkit-transition:all linear 0.5s;
+						  -moz-transition:all linear 0.5s;
+						}
+					 	</style>
+					 	<div ng-repeat="pan in userPurview" class="col-lg-4" ng-init="func=pan">
+					 			<div id="function{{pan.id}}" class="panel"  ng-controller="userfuncpanelController">
+					 				 <div ng-class="{'panel-heading-collapsed':panelDemo}" class="panel-heading">
+							           		{{pan.name}}
+								         <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" ></paneltool>
+							         </div>
+							         <div uib-collapse="function{{pan.id}}" class="panel-wrapper">
+							         	<div class="panel-body" style="min-height: 300px;">
+                 							<div ng-repeat="fun in funcList" class="col-sm-6 animate-repeat">	
+                 								<div class="checkbox c-checkbox pull-left" >
+													<label>
+														<input checked="" type="checkbox" ng-click="funChange(fun)" ng-model="fun.checked" ng-true-value="true" ng-false-value="false">
+														<span class="fa fa-check"></span>
+														<a ng-if="fun.type!=4" href="javascript:;" ng-click="goFunctionPage(fun)">{{fun.name}}</a>
+														{{fun.type==4?fun.name:""}}
+													</label>
+													
+												</div>
+											</div>
+							            </div>
+							            <div class="panel-footer">
+							            <span ng-repeat="foot in footList">
+							            /<a  href="javascript:void(0)" ng-click="goFunctionPage(foot)">{{foot.name}}</a>
+							            </span>
+							            
+							            </div>
+							         </div> 
+							         
+					 			</div>
+					 			
+					 		
+					 	</div>
+					 	
+					 </div>	
+						
+						
+						
+						
+		   </div>
+	</div>
+<!-- PanelTool End -->
+</form>
+<!--content-body end-->
+
