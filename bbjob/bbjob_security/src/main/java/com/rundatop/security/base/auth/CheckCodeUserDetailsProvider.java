@@ -60,6 +60,7 @@ public class CheckCodeUserDetailsProvider extends AbstractUserDetailsAuthenticat
 		return new Md5PasswordEncoder().isPasswordValid(user.getPassword(),password, saltSource.getSalt(user));
 	}
 	public static void main(String args[]){
-		new Md5PasswordEncoder().encodePassword("admin", "aarua");
+		String pwd= new Md5PasswordEncoder().encodePassword("dongyang", "aarua");
+		System.out.println(pwd);
 	}
 }

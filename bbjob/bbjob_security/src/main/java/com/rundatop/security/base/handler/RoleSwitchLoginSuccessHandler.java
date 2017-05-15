@@ -48,13 +48,14 @@ public class RoleSwitchLoginSuccessHandler extends SuccessHandler implements Ini
 		 boolean flag=false;
 		for(String targetAuth:roleList){		
 			for(GrantedAuthority auth:authentication.getAuthorities()){
+				if(flag)
+					break;
 				if(("ROLE_"+targetAuth).equals(auth.getAuthority())){
 					flag=true;
 					this.setDefaultTargetUrl(urlMap.get("ROLE_"+targetAuth));
 					break;
 				}
-				if(flag)
-					break;
+				
 			}
 		}
 		if(!flag){

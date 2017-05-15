@@ -8,8 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 public abstract class SecurityController {
 	public Object getCurrentUser(){
-		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
-		
+		Authentication authentication= SecurityContextHolder.getContext().getAuthentication();		
 		return authentication.getPrincipal();
 	}
 	public Object getCurrentUserName(){
