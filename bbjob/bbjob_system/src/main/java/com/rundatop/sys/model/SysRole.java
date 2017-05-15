@@ -5,95 +5,95 @@ import javax.persistence.*;
 @Table(name = "sys_role")
 public class SysRole {
     /**
-     * 主键
+     * 涓婚敭
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
-     * 角色名称
+     * 瑙掕壊鍚嶇О
      */
     @Column(name = "role_name")
     private String roleName;
 
     /**
-     * 是否启用
+     * 鏄惁鍚敤
      */
     private Integer enable;
 
     /**
-     * 备注
+     * 澶囨敞
      */
     private String remark;
 
     /**
-     * 获取主键
+     * 鑾峰彇涓婚敭
      *
-     * @return id - 主键
+     * @return id - 涓婚敭
      */
     public Integer getId() {
         return id;
     }
 
     /**
-     * 设置主键
+     * 璁剧疆涓婚敭
      *
-     * @param id 主键
+     * @param id 涓婚敭
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     * 获取角色名称
+     * 鑾峰彇瑙掕壊鍚嶇О
      *
-     * @return role_name - 角色名称
+     * @return role_name - 瑙掕壊鍚嶇О
      */
     public String getRoleName() {
         return roleName;
     }
 
     /**
-     * 设置角色名称
+     * 璁剧疆瑙掕壊鍚嶇О
      *
-     * @param roleName 角色名称
+     * @param roleName 瑙掕壊鍚嶇О
      */
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
 
     /**
-     * 获取是否启用
+     * 鑾峰彇鏄惁鍚敤
      *
-     * @return enable - 是否启用
+     * @return enable - 鏄惁鍚敤
      */
     public Integer getEnable() {
         return enable;
     }
 
     /**
-     * 设置是否启用
+     * 璁剧疆鏄惁鍚敤
      *
-     * @param enable 是否启用
+     * @param enable 鏄惁鍚敤
      */
     public void setEnable(Integer enable) {
         this.enable = enable;
     }
 
     /**
-     * 获取备注
+     * 鑾峰彇澶囨敞
      *
-     * @return remark - 备注
+     * @return remark - 澶囨敞
      */
     public String getRemark() {
         return remark;
     }
 
     /**
-     * 设置备注
+     * 璁剧疆澶囨敞
      *
-     * @param remark 备注
+     * @param remark 澶囨敞
      */
     public void setRemark(String remark) {
         this.remark = remark;

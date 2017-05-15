@@ -8,4 +8,6 @@ import com.rundatop.sys.model.SysRole;
 
 public interface IRoleService  extends IService<SysRole>{
 	public List<SysRole> selectRoleByRole(SysRoleEntity sysRole, int page,int rows);
+
+	public List<SysRole> selectRoleByRole(SysRoleEntity sysRole);
 }

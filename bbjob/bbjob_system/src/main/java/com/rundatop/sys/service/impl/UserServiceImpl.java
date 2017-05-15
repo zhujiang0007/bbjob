@@ -19,7 +19,7 @@ public class UserServiceImpl extends BaseService<User> implements IUserService{
 		Example example=new Example(User.class);
 		Example.Criteria criteria=example.createCriteria();
 		if(user!=null&&StringUtils.isNotBlank(user.getUsername())){
-			criteria.andEqualTo("username", user.getUsername());
+			criteria.andLike("username", "%"+user.getUsername()+"%");
 		}
 		if(user!=null&&StringUtils.isNotBlank(user.getPhone())){
 			criteria.andEqualTo("phone", user.getPhone());
@@ -30,7 +30,7 @@ public class UserServiceImpl extends BaseService<User> implements IUserService{
 		if(user!=null&&user.getEnable()!=null){
 			criteria.andEqualTo("enable", user.getEnable());
 		}
-		
+		example.setOrderByClause(" create_time desc");
 		PageHelper.startPage(page, rows);
 		List<User> resultList=mapper.selectByExample(example);
 		return resultList;

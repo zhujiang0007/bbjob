@@ -1,10 +1,10 @@
 package com.rundatop.sys.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,15 +21,15 @@ import com.rundatop.sys.service.IUserService;
 public class UserController {
 	@Resource
 	private IUserService userService;
-	@RequestMapping(value="users",method=RequestMethod.POST)
-	public PageInfo<User> selectUserList(@RequestBody User user,@RequestParam(required = false, defaultValue = "1") int page,
+	@RequestMapping(value="users",method=RequestMethod.GET)
+	public PageInfo<User> selectUserList(User user,@RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int rows){
 		List<User> list=userService.selectUserByUser(user, page, rows);
 		return new PageInfo<User>(list);
 	}
 	
-	@RequestMapping(value="user/{userId}",method=RequestMethod.GET)
-	public User getUser(@PathVariable("userId") Integer userId){
+	@RequestMapping(value="user",method=RequestMethod.GET)
+	public User getUser( Integer userId){
 		User user= userService.selectByKey(userId);
 		return user;
 	}
@@ -40,11 +40,12 @@ public class UserController {
 	}
 	@RequestMapping(value="user",method=RequestMethod.PUT)
 	public String saveUser(@RequestBody User user){
+		user.setCreateTime(new Date());
 		userService.save(user);
 		return "保存成功！";
 	}
-	@RequestMapping(value="user/{userId}",method=RequestMethod.DELETE)
-	public String deleteUser(@PathVariable("userId") Integer userId){
+	@RequestMapping(value="user",method=RequestMethod.DELETE)
+	public String deleteUser(Integer userId){
 		userService.delete(userId);
 		return "删除成功";
 	}

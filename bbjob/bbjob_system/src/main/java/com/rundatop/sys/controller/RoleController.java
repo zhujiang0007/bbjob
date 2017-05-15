@@ -21,15 +21,19 @@ import com.rundatop.sys.service.IRoleService;
 public class RoleController {
 	@Resource
 	private IRoleService roleService;
-	@RequestMapping(value="roles",method=RequestMethod.POST)
-	public PageInfo<SysRole> selectRoleList(@RequestBody(required=false) SysRoleEntity sysRole,@RequestParam(required = false, defaultValue = "1") int page,
+	@RequestMapping(value="role/page",method=RequestMethod.GET)
+	public PageInfo<SysRole> selectRoleListPage(SysRoleEntity sysRole,@RequestParam(required = false, defaultValue = "1") int page,
             @RequestParam(required = false, defaultValue = "10") int rows){
 		List<SysRole> list=roleService.selectRoleByRole(sysRole, page, rows);
 		return new PageInfo<SysRole>(list);
 	}
-	
-	@RequestMapping(value="role/{roleId}",method=RequestMethod.GET)
-	public SysRole getUser(@PathVariable("roleId") Integer roleId){
+	@RequestMapping(value="role/list",method=RequestMethod.GET)
+	public List<SysRole> selectRoleList(SysRoleEntity sysRole){
+		List<SysRole> list=roleService.selectRoleByRole(sysRole);
+		return list;
+	}
+	@RequestMapping(value="role",method=RequestMethod.GET)
+	public SysRole getUser(Integer roleId){
 		SysRole sysRole= roleService.selectByKey(roleId);
 		return sysRole;
 	}
@@ -40,11 +44,12 @@ public class RoleController {
 	}
 	@RequestMapping(value="role",method=RequestMethod.PUT)
 	public String saveUser(@RequestBody SysRole sysRole){
+		sysRole.setEnable(1);
 		roleService.save(sysRole);
 		return "保存成功！";
 	}
-	@RequestMapping(value="role/{roleId}",method=RequestMethod.DELETE)
-	public String deleteUser(@PathVariable("roleId") Integer roleId){
+	@RequestMapping(value="role",method=RequestMethod.DELETE)
+	public String deleteUser(Integer roleId){
 		roleService.delete(roleId);
 		return "删除成功";
 	}

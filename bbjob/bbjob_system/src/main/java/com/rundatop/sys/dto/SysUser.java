@@ -21,6 +21,9 @@ public class SysUser extends User implements UserDetails{
 		// TODO Auto-generated method stub
 		return  this.user.getPassword();
 	}
+	public Integer getUserType(){
+		return this.user.getType();
+	}
 	/**
 	 * 
 	 */
