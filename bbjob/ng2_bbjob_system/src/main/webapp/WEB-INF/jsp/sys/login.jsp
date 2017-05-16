@@ -17,7 +17,7 @@
    <!-- Themes-->
    <link rel="stylesheet" type="text/css" href="${p:get('system.res')}app/css/theme-e.css"/>
    <link rel="stylesheet" ng-href="{{app.layout.theme}}" data-ng-if="app.layout.theme">
-   <link rel="stylesheet" type="text/css" href="${p:get('system.res')}app/css/login.css"/>
+   <link rel="stylesheet" type="text/css" href="${p:get('system.res')}/css/login.css"/>
 	<script src="${p:get('system.res')}vendor/jquery/dist/jquery.js"></script>   
 	<script src="${p:get('system.res')}vendor/jquery.toaster/jquery.toaster.js"></script>   
 	<script src="${p:get('system.res')}vendor/bootstrap/dist/js/bootstrap.js"></script>   

@@ -1,0 +1,129 @@
+
+body{
+	position: absolute;
+	width: 100%;
+	height: 100%;	
+	font-family:angle,"Source Sans Pro",sans-serif, '微软雅黑', 'Microsoft Yahei',"Hiragino Sans GB",tahoma,arial,"宋体" !important;
+	border: 2px solid #f00;
+}
+.login_bg{
+	background-color: #1ba1cb;
+	border: 1px solid rgba(255, 255, 255, 0);
+	position: fixed;
+	width: 100%; 
+	height: 100%; 
+	left: 0;
+	top:0;
+}
+.login_container{
+	width: 370px;
+	height: 432px;
+	/* margin: 0 auto; */
+	margin-left: auto; margin-right: auto;
+	border: 0px solid #fff;
+	margin-top: 20px;
+	margin-top: 7%;
+	padding-top: 52px;
+	position: relative;
+}
+.login_content{
+	background-color: #eeeeee;
+	width: 370px;
+	height: 380px;
+	border-radius: 4px;
+	position: absolute;
+	z-index: 100;
+}
+.loginShadow{
+	position: absolute;
+	z-index: 99;
+}
+.login_img{
+	width:102px;
+	height: 102px;
+	margin-top:-51px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #3f4a71;
+	border-radius: 51px;
+	background-image: url('../img/loginImg.png');    
+	background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 80% auto;
+}
+.login_heading{
+	margin: 20px 0;
+	text-align:center;
+	color: #9c9c9c;
+	font-size: 24px;
+}
+.login_body{
+	padding:0 20px;
+}
+.login_body>#userName,.login_body>#password,.login_body>#login,.login_body>#verification{
+	display: block;
+	border: 1px solid rgba(211, 211, 211, 0);
+	width: 100%;
+	height: 34px;
+	background-color: #d3d3d3;
+	border-radius: 2px;
+	margin-bottom: 25px;
+	padding: 0 15px;
+	line-height: 34px;
+	color: #666;
+	font-size: 14px;
+}
+.login_body>#userName:focus,.login_body>#password:focus,.login_body>#verification:focus{
+	border: 1px solid #1ba1cb;
+}
+.login_body>#login{
+	background-color: #3f4a71;
+	color: #fff;
+}
+.login_body>#verification{
+	float: left;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-bottom:0
+}
+.login_body>#verificationImg{
+	display: block;
+	float: right;
+	border: 1px solid #d3d3d3;
+	width: 100px;
+	height: 34px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.login_body>#verificationImg>img{
+	width: 100px;
+	height: 34px;
+}
+.login_body>#login:hover{
+	background-color:#374062;
+}
+
+@media (max-width: 750px) {
+	#loginShadow{ display:none; }
+}
+@media (max-width: 375px) {
+	.login_container{ width: 100%; padding:10px 8px;}
+	.login_content{ width: 100%; }
+	
+}
+
+#footer{
+	margin-top: 40px;    
+	position: relative;
+	color: #fff;
+	text-align:center;
+}
+#hintHolder{
+	height: 30px;
+	line-height: 30px;
+}
+#hintHolder>span{
+	font-size: 12px;
+}

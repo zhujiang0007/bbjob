@@ -33,10 +33,10 @@
       // Set here the base of the relative path
       // for all app views
       function basepath(uri) {
-        return 'jsp/views/operative/' + uri;
+        return 'views/operative/' + uri;
       }
       function basicpath(uri) {
-        return 'jsp/views/' + uri;
+        return 'views/' + uri;
       }
 
       // Generates a resolve object by passing script names

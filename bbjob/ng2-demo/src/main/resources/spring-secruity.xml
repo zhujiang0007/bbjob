@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="false"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       http://www.springframework.org/schema/security   
+       http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+    <security:http pattern="/**/*.jpg" security="none" />
+	<security:http pattern="/**/*.png" security="none" />
+	<security:http pattern="/**/*.gif" security="none" />
+	<security:http pattern="/**/*.css" security="none" />
+	<security:http pattern="/**/*.js" security="none" />
+	<security:http pattern="/**/*.swf" security="none" />
+	<security:http pattern="/**/login.jsp" security="none" />
+	<security:http pattern="/**/web/sign.html" security="none" />
+	<security:http pattern="/**/forgotpassword.jsp" security="none" />
+	
+	<security:http  use-expressions="true"
+	entry-point-ref="urlAndAjaxAuthenticationEntryPoint"    
+	>
+	<security:csrf disabled="true"/>
+	<security:headers>
+		<security:frame-options policy="SAMEORIGIN"/>
+	</security:headers>
+	<!-- <security:anonymous enabled="true" key="doesNotMatter" username="anonymousUser" granted-authority="ROLE_ANONYMOUS"/> -->
+	 <security:intercept-url pattern="/**/service/enrolinfo/**" access="hasAnyRole('ROLE_1','ROLE_2')"  /> 
+	
+	
+	<!-- 表单登录 -->
+	<security:custom-filter before="FORM_LOGIN_FILTER" ref="loginFilter"/>
+	<!-- ajax登录 -->
+	<security:custom-filter after="FORM_LOGIN_FILTER" ref="ajaxLoginFilter"/>
+	<!-- 记住我 -->
+	<security:custom-filter position="REMEMBER_ME_FILTER" ref="rememberMeFilter" />
+	<!-- 登出 -->
+	<security:custom-filter ref="logoutFilter" position="LOGOUT_FILTER" />
+	
+	</security:http>
+	
+	<security:authentication-manager id="authenticationManager">
+	     <security:authentication-provider ref="sysbaseuserProvider" />
+	     <security:authentication-provider  ref="rememberMeAuthenticationProvider" />
+	</security:authentication-manager>
+	 <bean  id="sysbaseuserProvider"  class="com.rundatop.security.base.auth.CheckCodeUserDetailsProvider">
+	    <property name="userDetailsService" ref="userLoginService"></property>
+	    <property name="saltSource" ref="saltDatasource"></property>
+	 </bean>
+	
+	<bean id="loginSuccessHandler" class="com.rundatop.security.base.handler.RoleSwitchLoginSuccessHandler">
+	    <property name="defaultTargetUrl" value="${security.defaultTargetUrl}"></property>
+	    <property name="service" ref="functionServiceImpl"></property>
+	    <property name="roleList" >
+	    	<array>
+	    		<value>2</value>
+	    		<value>3</value>
+	    		<value>1</value>    		
+	    	</array>
+	    </property>
+		</bean>
+	<bean id="loginFailureHandler" class="org.springframework.security.web.authentication.ForwardAuthenticationFailureHandler">
+  <constructor-arg index="0" value="${security.defaultFailureUrl}"></constructor-arg>
+  </bean>
+	
+	
+<bean id="ajaxLoginFilter" class="com.rundatop.security.base.filter.BaseRequestBodyAuthenticationFilter">  
+        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="rememberMeServices" ref="rememberMeServices"/>
+          
+        <property name="authenticationFailureHandler" ref="ajaxFailureHandler"/>  
+        <property name="authenticationSuccessHandler" ref="ajaxSuccessHandler"/>  
+</bean>  
+<bean id="loginFilter" class="com.rundatop.security.base.filter.CheckCodeUsernamePasswordFilter">
+ 		<property name="rememberMeServices" ref="rememberMeServices"/>
+		<property name="filterProcessesUrl" value="${processes.url.login}" />  
+        <property name="authenticationManager" ref="authenticationManager"/>  
+        <property name="authenticationSuccessHandler" ref="loginSuccessHandler"/> 
+        <property name="authenticationFailureHandler" ref="loginFailureHandler"/>   
+</bean> 
+ <bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+  <constructor-arg index="0" ref="logoutSuccessHandler" /> 
+ <constructor-arg index="1">
+ <array>
+  <bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+  <ref bean="rememberMeServices"/>
+  </array>
+  </constructor-arg>
+  <property name="filterProcessesUrl" value="${processes.url.logout}" /> 
+  </bean>
+   <bean id="logoutSuccessHandler" class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler">
+  <property name="defaultTargetUrl" value="${security.defaulLogintUrl}" /> 
+  </bean>
+
+  
+	<bean id="urlAndAjaxAuthenticationEntryPoint" class="com.rundatop.security.base.auth.UrlAndAjaxAuthenticationEntryPoint">  
+       	<constructor-arg index="0" value="${security.defaulLogintUrl}" /> 
+    </bean>
+   <bean id="ajaxFailureHandler" class="com.rundatop.security.base.auth.AjaxAuthenticationFailureHandler">  
+    </bean>  
+      
+    <bean id="ajaxSuccessHandler" class="com.rundatop.security.base.auth.AjaxAuthenticationSuccessHandler">  
+    </bean> 
+    
+    
+    <bean id="saltDatasource" class="org.springframework.security.authentication.dao.SystemWideSaltSource">
+    	<property name="systemWideSalt" value="${security.systemWideSalt}" /> 
+    </bean>
+    
+    
+    
+      <bean id="rememberMeFilter"
+   class="org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter">
+   <constructor-arg index="0" ref="authenticationManager" />
+   <constructor-arg index="1" ref="rememberMeServices" />
+   </bean>
+  <!--  RememberMeServices的实现 -->
+   <bean id="rememberMeServices"
+   class="org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
+   	<constructor-arg index="0" value="${security.systemWideSalt}" ></constructor-arg>
+   	<constructor-arg index="1" ref="userLoginService" ></constructor-arg>
+      <property name="parameter" value="${security.rember_me.parameter}"/>
+   </bean>
+  <!--  key值需与对应的RememberMeServices保持一致 -->
+   <bean id="rememberMeAuthenticationProvider"
+   class="org.springframework.security.authentication.RememberMeAuthenticationProvider">
+    <constructor-arg index="0" value="${security.systemWideSalt}" /> 
+   </bean>
+     
+</beans>

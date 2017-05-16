@@ -1,10 +1,10 @@
 <!-- Inline template with sidebar items markup and ng-directives-->
 <script type="text/ng-template" id="sidebar-renderer.html">
-	<span ng-if="item.heading">{{(item.translate | translate) || item.purviewName}}</span>
-	<a ng-click="menuClick(item)" ng-if="!item.heading" ng-href="{{$state.href(item.sref, item.params)}}" title="{{item.purviewName}}">
-		<div ng-if="item.alert" ng-class="item.label || 'label label-success'" class="pull-right">{{item.alert}}</div><em ng-if="item.icon" class="{{item.icon}}"></em><span>{{(item.translate | translate) || item.purviewName}}</span></a>
+	<span ng-if="item.heading">{{(item.translate | translate) || item.name}}</span>
+	<a ng-click="menuClick(item)" ng-if="!item.heading" ng-href="{{$state.href(item.sref, item.params)}}" title="{{item.name}}">
+		<div ng-if="item.alert" ng-class="item.label || 'label label-success'" class="pull-right">{{item.alert}}</div><em ng-if="item.icon" class="{{item.icon}}"></em><span>{{(item.translate | translate) || item.name}}</span></a>
 	<ul ng-if="item.submenu" uib-collapse="isCollapse(pIndex)" ng-init="addCollapse(pIndex, item)" class="nav sidebar-subnav">
-		<li class="sidebar-subnav-header">{{(item.translate | translate) || item.purviewName}}</li>
+		<li class="sidebar-subnav-header">{{(item.translate | translate) || item.name}}</li>
 		<li ng-repeat="item in item.submenu" ng-include="'sidebar-renderer.html'" ng-class="getMenuItemPropClasses(item)" ng-init="pIndex=(pIndex+'-'+$index); inSubmenu = true" ng-click="toggleCollapse(pIndex)"></li>
 	</ul>
 </script>
