@@ -16,11 +16,23 @@
 		var self = this;// 把controller 定义为变量self
 		$scope.footList=[$scope.func];
 		var curPage=$scope.func;
-		sysfunctionService.getFunctions($scope.func.id).then(getFuncSuccess)
+		init();
+		function init(){
+			sysfunctionService.getFunctions($scope.func.id).then(getFuncSuccess);
+		}
+		
 		function getFuncSuccess(data){
 			$scope.funcList=data;
 		}
 		
+		$scope.$on("saveSuccess",function(event,data){
+			if(data.pId==$scope.func.id)
+			init();
+		});
+		$scope.$on("delSuccess",function(event,data){
+			if(data.pId==$scope.func.id)
+			init();
+		});
 		
 		$scope.goFunctionPage=function(foot){
 			if($scope.isCurPage(foot))

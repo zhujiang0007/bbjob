@@ -1,38 +1,196 @@
 <div class="modal-content">
+<form name="form" novalidate="" class="form-horizontal">
 	<div class="modal-header">
 		<h4 class="modal-title MtextGray" id="myModalLabel">{{dialogTitle}}功能</h4>
 	</div>
 	<div class="modal-body MpaddingTop0">
-		<form name="addForm" novalidate="" class="form-horizontal">
+		
 			<div class="row col-sm-11">
 				<div class="col-md-12 mt-lg">
 					<div class="form-group">
 						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
-							class="text-danger">*</span>角色名称</label>
+							class="text-danger">*</span>功能名称</label>
 						<div class="col-sm-8">
-							<input class="form-control Minput" type="text" placeholder="请输入角色名称"
-								name="rolename"  ng-model="newTpls.rolename"/>
+							<input class="form-control Minput" type="text" placeholder="请输入功能名称" required=""
+								name="name"  ng-model="newTpls.name"/>
+							<span ng-show="form.name.$error.required" class="text-danger">必填项</span>
 						</div>
 					</div>
 				</div>
+				
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>权限代码</label>
+						<div class="col-sm-8">
+							<input class="form-control Minput" type="text" placeholder="请输入权限代码" required=""
+							ui-validate-async="{alreadyExists: 'doesNotExist($value,newTpls.id)'}"
+								name="permissionCode"  ng-model="newTpls.permissionCode"/>
+							<span ng-show="form.permissionCode.$error.required" class="text-danger">必填项</span>
+							<span ng-show='form.permissionCode.$pending'>验证是否存在重复权限代码...</span>
+							<span ng-show='form.permissionCode.$error.alreadyExists'>重复的权限代码</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc"><span
+							class="text-danger">*</span>功能类型</label>
+						<div class="col-sm-8">
+				<div class="radio c-radio">
+                     <label>
+                        <input type="radio" name="type" value="2" ng-model="newTpls.type" />
+                        <span class="fa fa-circle"></span>模块功能</label>
+                  </div>		
+				 <div class="radio c-radio">
+                     <label>
+			            <input type="radio" name="type" value="1" ng-model="newTpls.type" />
+			            <span class="fa fa-circle"></span>功能组</label>
+                  </div>              
+				  <div class="radio c-radio">
+                     <label>
+                        <input type="radio" name="type" value="3" ng-model="newTpls.type"/>
+                        <span class="fa fa-circle"></span>权限功能</label>
+                  </div>		
+							
+							
+						</div>
+					</div>
+				</div>
+				
+				
 				<div class="col-md-12 mt-lg">
 					<div class="form-group">
 						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc">
-						<span class="text-danger">*</span>备注</label>
+						<span class="text-danger">*</span>是否显示在菜单上</label>
 						<div class="col-sm-8">
-							<input class="form-control Minput" type="text" placeholder="请输入电子邮箱"
+							 <div class="radio c-radio">
+			                     <label>
+						            <input type="radio" name="isMenu" value="1" ng-model="newTpls.isMenu" />
+						            <span class="fa fa-circle"></span>是</label>
+			                  </div>              
+							  <div class="radio c-radio">
+			                     <label>
+			                        <input type="radio" name="isMenu" value="0" ng-model="newTpls.isMenu"/>
+			                        <span class="fa fa-circle"></span>否</label>
+                 			 </div>		
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc">
+						<span class="text-danger">*</span>打开方式</label>
+						<div class="col-sm-8">
+							 <div class="radio c-radio">
+			                     <label>
+						            <input type="radio" name="openType" value="1" ng-model="newTpls.openType" />
+						            <span class="fa fa-circle"></span>tab打开</label>
+			                  </div>              
+							  <div class="radio c-radio">
+			                     <label>
+			                        <input type="radio" name="openType" value="2" ng-model="newTpls.openType"/>
+			                        <span class="fa fa-circle"></span>window打开</label>
+                 			 </div>
+                 			  <div class="radio c-radio">
+			                     <label>
+			                        <input type="radio" name="openType" value="3" ng-model="newTpls.openType"/>
+			                        <span class="fa fa-circle"></span>窗口打开</label>
+                 			 </div>	
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc">
+						小图标样式</label>
+						<div class="col-sm-8">
+						<input class="form-control Minput" type="text" placeholder="请输入小图标样式"
+								name="rolename"  ng-model="newTpls.iconCls"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc">
+						窗口配置</label>
+						<div class="col-sm-8">
+							 <input class="form-control Minput" type="text" placeholder="窗口配置信息"
+								name="rolename"  ng-model="newTpls.windowOption"/>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc">
+						<span class="text-danger">*</span>启用状态</label>
+						<div class="col-sm-8">
+							 <div class="radio c-radio">
+			                     <label>
+						            <input type="radio" name="isVisible" value="1" ng-model="newTpls.isVisible" />
+						            <span class="fa fa-circle"></span>是</label>
+			                  </div>              
+							  <div class="radio c-radio">
+			                     <label>
+			                        <input type="radio" name="isVisible" value="0" ng-model="newTpls.isVisible"/>
+			                        <span class="fa fa-circle"></span>否</label>
+                 			 </div>		
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				<div class="col-md-12 mt-lg">
+					<div class="form-group">
+						<label class="col-md-4 control-label pr0 text-right pt-sm MselectLabelc">
+						备注</label>
+						<div class="col-sm-8">
+							<input class="form-control Minput" type="text" placeholder="备注"
 								name="remark"  ng-model="newTpls.remark"/>
 						</div>
 					</div>
 				</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			</div>
 			<div class="clearfix"></div>
-		</form>
+		
 	</div>
 	<div class="modal-footer ">
 
 		<div class="col-lg-2 col-lg-offset-4">
-			<button class="btn btn-block btn-info mt-lg mb-lg"
+			<button class="btn btn-block btn-info mt-lg mb-lg" ng-disabled="!form.$valid"
 				ng-click="save(changeIf)">保存</button>
 		</div>
 		<div class="col-lg-2">
@@ -40,4 +198,5 @@
 				ng-click="close()">关闭</button>
 		</div>
 	</div>
+	</form>
 </div>

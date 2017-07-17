@@ -40,7 +40,7 @@
         <property name="dataSource" ref="sys_dataSource"/>
         <property name="mapperLocations">
             <array>
-                <value>classpath:mapper/sys/*.xml</value>
+                <value>classpath*:mapper/sys/*.xml</value>
             </array>
         </property>
         <property name="typeAliasesPackage" value="com.rundatop.sys.model"/>

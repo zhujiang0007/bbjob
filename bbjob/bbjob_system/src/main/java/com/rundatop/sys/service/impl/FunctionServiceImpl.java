@@ -46,5 +46,21 @@ public class FunctionServiceImpl extends BaseService<SysFunction> implements IFu
 		}
 		return resultList;
 	}
+	@Override
+	public int save(SysFunction entity) {
+		entity.setPermissionCode(entity.getPermissionCode());
+		Integer sortNo=this.getMaxSortNo(entity.getpId());
+		entity.setSortNo(sortNo==null?1:sortNo);
+		return super.save(entity);
+	}
+	public int getMaxSortNo(Integer pId){
+		Example example=new Example(SysFunction.class);
+		example.createCriteria().andEqualTo("pId",pId);
+		example.setOrderByClause("sort_no desc");
+		List<SysFunction> functions= this.mapper.selectByExample(example);
+		if(functions.size()==0)
+			return 1;
+		return functions.get(0).getSortNo();
+	}
 
 }

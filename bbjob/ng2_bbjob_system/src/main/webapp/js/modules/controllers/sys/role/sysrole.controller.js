@@ -82,7 +82,7 @@
 					.open({
 						width : '40%',
 						className : 'ngdialog-theme-default',
-						template : '<div ng-include="\'jsp/views/operative/menu1/role/sysrole_add.html\'"> </div>',
+						template : '<div ng-include="\'views/operative/sys/role/sysrole_add.html\'"> </div>',
 						plain : true,
 						scope : $scope
 					});
@@ -102,7 +102,7 @@
 							.open({
 								width : '40%',
 								className : 'ngdialog-theme-default',
-								template : '<div ng-include="\'jsp/views/operative/menu1/role/sysrole_add.html\'"> </div>',
+								template : '<div ng-include="\'views/operative/sys/role/sysrole_add.html\'"> </div>',
 								plain : true,
 								scope : $scope
 							});

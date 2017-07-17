@@ -4,13 +4,28 @@
 			.service('sysfunctionService', sysfunctionService);
 	sysfunctionService.$inject = [ '$rootScope', '$resource'];
 	function sysfunctionService($rootScope, $resource) {
-		var url = $rootScope.server.basePath+'sys/function/:type/:pid.json';
-		var userrole = $resource(url,{userId:'@userId',type:'@type',pid:'@pid'},{
+		var url = $rootScope.server.basePath+'sys/function/:qtype/:pid.json';
+		var functions = $resource(url,{userId:'@userId',qtype:'@qtype',pid:'@pid'},{
 			 put:{method:'PUT'},
 			 update:{method:'PATCH'}
 		});
 		this.getFunctions=function(pid){
-			return userrole.query({type:'list',pid:pid}).$promise;
+			return functions.query({qtype:'list',pid:pid}).$promise;
+		}
+		this.checkPerCodeExists=function(permissionCode){
+			return functions.query({qtype:'check',permissionCode:permissionCode}).$promise;
+		}
+		this.add=function(data){
+			return functions.put(data).$promise;
+		}
+		this.update=function(data){
+			return functions.update(data).$promise;
+		}
+		this.remove=function(id){
+			return functions.remove({id:id}).$promise;
+		}
+		this.get=function(id){
+			return functions.get({id:id}).$promise;
 		}
 	}
 })();

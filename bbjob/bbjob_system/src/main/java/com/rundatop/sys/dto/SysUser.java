@@ -24,6 +24,9 @@ public class SysUser extends User implements UserDetails{
 	public Integer getUserType(){
 		return this.user.getType();
 	}
+	public Integer getUserId(){
+		return this.user.getId();
+	}
 	/**
 	 * 
 	 */

@@ -95,7 +95,7 @@
 					.open({
 						width : '60%',
 						className : 'ngdialog-theme-default',
-						template : '<div ng-include="\'jsp/views/operative/menu1/user/sysuser_add.html\'"> </div>',
+						template : '<div ng-include="\'views/operative/sys/user/sysuser_add.html\'"> </div>',
 						plain : true,
 						scope : $scope
 					});
@@ -115,7 +115,7 @@
 							.open({
 								width : '60%',
 								className : 'ngdialog-theme-default',
-								template : '<div ng-include="\'jsp/views/operative/menu1/user/sysuser_add.html\'"> </div>',
+								template : '<div ng-include="\'views/operative/sys/user/sysuser_add.html\'"> </div>',
 								plain : true,
 								scope : $scope
 							});
@@ -158,8 +158,7 @@
 			
 		//save
 		$scope.save = function(type){
-			var url = HttpServiceUtil.sysusers,
-			data = $scope.newTpls;
+			var data = $scope.newTpls;
 			if(type){
 				//change
 				sysuserService.update(data).then(onSuccess,onError);

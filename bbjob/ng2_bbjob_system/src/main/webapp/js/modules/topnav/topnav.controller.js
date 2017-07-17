@@ -140,21 +140,21 @@
 		
 		/* 跳转菜单 */
 		function init() {
-			var url = 'sys/getCurrentMenu.json?menuName=' + menuUrl;
-			$http.get(url).success(function(data,status,headers,config){
-				if(data.statusCode=='200'){
-					if(data.data.parentSortNo){
-						$rootScope.menuIndex = data.data;
-						menuClick($rootScope.menuIndex.parentSortNo);
-					}else{
-						menuClick(0);
-					}
-				}else{
-					menuClick(0);
-				}
-			}).error(function(data,status,headers,config){
-				menuClick(0);
-			})
+//			var url = 'sys/getCurrentMenu.json?menuName=' + menuUrl;
+//			$http.get(url).success(function(data,status,headers,config){
+//				if(data.statusCode=='200'){
+//					if(data.data.parentSortNo){
+//						$rootScope.menuIndex = data.data;
+//						menuClick($rootScope.menuIndex.parentSortNo);
+//					}else{
+//						menuClick(0);
+//					}
+//				}else{
+//					menuClick(0);
+//				}
+//			}).error(function(data,status,headers,config){
+//				menuClick(0);
+//			})
 		}
 
 		$scope.$on("noticeReadToChild", function(event, msg) {

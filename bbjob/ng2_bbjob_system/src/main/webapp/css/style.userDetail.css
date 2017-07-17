@@ -1,0 +1,42 @@
+.btnGroup {
+    border: 1px solid #ddd;
+    height: 400px;
+    overflow-y:auto;
+	background-color: #fdfdfd;
+}
+.btnGroup>a{
+	cursor: pointer;
+	border:none;
+}
+.btnGroup>a:hover{
+	background-color: #eee
+}
+.btnGroup>a.active{
+	background-color: #ddd;
+}
+.btnGroup>a.active *{
+	color: #fff !important;
+}
+.btnGroup>a.active:hover{
+	background-color: #d1d1d1;
+}
+
+/* ui.tree */
+.tree-node-content {
+    margin: 5px !important;
+}
+.tree-node{
+	padding: 8px !important;
+}
+.tree-node{
+	cursor: pointer;
+}
+.tree-node>a.btn{
+	width: 34px !important;
+}
+.list-group-item {
+	background-color: #fafafa;
+}
+.tree-node.tree-node-content.avtive{
+	background-color: #dce3f6;
+}
