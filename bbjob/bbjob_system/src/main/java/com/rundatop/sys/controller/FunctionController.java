@@ -54,7 +54,9 @@ public class FunctionController {
 		Example example=new Example(SysFunction.class);
 		Example.Criteria criteria=example.createCriteria();
 			criteria.andEqualTo("permissionCode", permissionCode.toUpperCase());
-		if(id!=null)
+		if(id==null){
+			criteria.andIsNotNull("id");
+		}else
 			criteria.andNotEqualTo("id",id);
 		List<SysFunction> list=functionService.selectByExample(example);
 		if(list.size()>0)

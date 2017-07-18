@@ -12,8 +12,8 @@
 		this.getFunctions=function(pid){
 			return functions.query({qtype:'list',pid:pid}).$promise;
 		}
-		this.checkPerCodeExists=function(permissionCode){
-			return functions.query({qtype:'check',permissionCode:permissionCode}).$promise;
+		this.checkPerCodeExists=function(permissionCode,id){
+			return functions.query({qtype:'check',permissionCode:permissionCode,id:id}).$promise;
 		}
 		this.add=function(data){
 			return functions.put(data).$promise;
