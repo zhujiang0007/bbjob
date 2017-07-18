@@ -13,7 +13,7 @@
         <jdk.version>1.8</jdk.version>
         <!--  依赖版本  -->
    		<mysql.version>5.1.39</mysql.version>
-   		<mapper.version>3.3.9</mapper.version>
+   		<mapper.version>3.4.1</mapper.version>
    		<mybatis.version>3.4.2</mybatis.version>
    		<spring.version>4.3.5.RELEASE</spring.version>
         <mybatis.spring.version>1.2.4</mybatis.spring.version>
@@ -341,8 +341,7 @@
     <artifactId>log4j</artifactId>
     <version>1.2.17</version>
 </dependency>
-        
-     <!-- https://mvnrepository.com/artifact/com.google.code.kaptcha/kaptcha -->
+<!-- 验证码 -->
 <dependency>
     <groupId>com.google.code.kaptcha</groupId>
     <artifactId>kaptcha</artifactId>
