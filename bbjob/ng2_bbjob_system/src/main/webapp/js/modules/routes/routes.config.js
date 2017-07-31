@@ -93,7 +93,7 @@
               controller: 'syspurviewCtrl',
               controllerAs: 'syspurview',
               templateUrl: helper.basepath('menu1/purview/purview.html'),
-              resolve: helper.resolveFor('syspurview.controller', 'ngTable', 'oitozero.ngSweetAlert', 'toaster', 'table.nothing')
+              resolve: helper.resolveFor('syspurview.controller', 'ngTable', 'oitozero.ngSweetAlert', 'toaster', 'table.nothing','html.sortable')
           })
           .state('app.syspurviewDetail', {
               url: '/syspurviewDetail/:pruviewId',

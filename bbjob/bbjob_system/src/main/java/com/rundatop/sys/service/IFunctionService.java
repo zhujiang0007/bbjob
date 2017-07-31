@@ -7,9 +7,9 @@ import com.rundatop.sys.dto.FunctionTreeEntity;
 import com.rundatop.sys.model.SysFunction;
 public interface IFunctionService extends IService<SysFunction>{
 
-	List<SysFunction> getFunctionsByPid(String pid);
+	List<SysFunction> getFunctionsByPid(Integer pid);
 
-	List<FunctionTreeEntity> selectFunctionTreeByPid(String pid);
+	List<FunctionTreeEntity> selectFunctionTreeByPid(Integer pid);
 
 	
 

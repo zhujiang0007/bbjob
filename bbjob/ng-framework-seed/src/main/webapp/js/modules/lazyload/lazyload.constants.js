@@ -31,7 +31,12 @@
 									'vendor/Flot/jquery.flot.time.js',
 									'vendor/Flot/jquery.flot.categories.js',
 									'vendor/flot-spline/js/jquery.flot.spline.min.js' ],
-							'filestyle' : [ 'vendor/bootstrap-filestyle/src/bootstrap-filestyle.js' ]
+							'filestyle' : [ 'vendor/bootstrap-filestyle/src/bootstrap-filestyle.js' ],
+							'html.sortable' : [ 'vendor/html.sortable/js/html.sortable.js',
+								'vendor/html.sortable/js/html.sortable.angular.js'
+								],
+								'ngDraggble' : [ 'vendor/ng-Draggable/js/ngDraggable.js'
+									]
 						// 过度动画相关
 						},
 						// Angular based script (use the right module name)

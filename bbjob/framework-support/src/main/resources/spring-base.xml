@@ -16,7 +16,10 @@
 		lazy-init="false">
 		<property name="propertyConfigurer" ref="propertyConfigurer" />
 	</bean>
-
+	<bean class="com.rundatop.core.spring.ioc.ListenerAnnotationBeanPostProcessor"
+		lazy-init="false">
+		<property name="context" ref="APP_CONTEXT" />
+	</bean>
 	 <bean id="APP_CONTEXT" class="com.rundatop.core.spring.ApplicationContext" lazy-init="false" /> 
 		
 	

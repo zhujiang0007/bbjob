@@ -246,3 +246,32 @@ color: #aaa !important;
 .ngdialog.ngdialog-theme-default .ngdialog-content {
 	    padding: 0 !important;
 }
+
+.xtgl .list-group-item {
+    border-top:0;
+    border-left:0;
+    border-right:0;
+    
+    
+}
+.xtgl .panel-heading {
+    background-color: #f8f8f8;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+}
+.xtgl .fa-edit, .xtgl .fa-trash-o{  font-size: 18px;}
+.xtgl .label {
+    padding: 2px 6px 3px;
+    font-weight: normal;
+    line-height: 14px;
+
+}
+/* .xtgl .label谷歌浏览器兼容 */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.xtgl .label {
+    padding: 2px 6px 2px;
+}
+	
+}
+
+

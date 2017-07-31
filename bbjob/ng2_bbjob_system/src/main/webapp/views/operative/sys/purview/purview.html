@@ -14,15 +14,15 @@
 						<button type="button" class="btn btn-info bg-info-light"
 							ng-click="add(0)">新增</button>
 					</div>
-
-
-
 					<div class="clearfix"></div>
 				</div>
+			</div>
+			<!-- <div class="panel"> -->
 				<!-- START table-responsive-->
-				<div class="panel-body MpaddingTop0">
+				<!-- <div class="panel-body MpaddingTop0"> -->
 
-					<div class="row">
+					<div class="row xtgl" >
+					<div id="portlet-1" portlet="portlet" class="col-lg-12">
 
 						<div ng-repeat="pan in functions" class="col-lg-4"
 							ng-init="func=pan">
@@ -30,22 +30,68 @@
 								ng-controller="functionpanelController">
 								<div ng-class="{'panel-heading-collapsed':panelDemo}"
 									class="panel-heading">
-									{{pan.name}} <a href="javascript:;" ng-click="edit(pan.id)">编辑</a>
-									<a href="javascript:;" ng-click="del(pan)">删除</a>
+									
+									{{pan.name}} 
+									<div class="pull-right">
+									<a href="javascript:;" class="btn btn-info bg-info-light btn-sm" ng-click="add(pan.id)">新增</a>
+									<a href="javascript:;" class="btn btn-info bg-info-light btn-sm ml-sm" ng-click="edit(pan.id)">编辑</a>
+									<a href="javascript:;" class="btn btn-danger bg-danger-light btn-sm ml-sm" ng-click="del(pan)">删除</a>
+									</div>
+									<div class="clearfix"></div>
 									<paneltool tool-collapse="tool-collapse"
 										tool-dismiss="tool-dismiss"></paneltool>
 								</div>
+								
 								<div uib-collapse="function{{pan.id}}" class="panel-wrapper">
-									<div class="panel-body" style="min-height: 300px;">
+								
+									<div class="panel-body" style="min-height: 350px;max-height:350px;overflow-y:auto">
 										<div ng-repeat="fun in funcList"
 											class="col-sm-12 animate-repeat">
-											<a ng-if="fun.type!=4" href="javascript:;"
-												ng-click="goFunctionPage(fun)">{{fun.name}}</a>
-											{{fun.type==4?fun.name:""}} <a href="javascript:;"
-												ng-click="edit(fun.id)">编辑</a> <a href="javascript:;"
-												ng-click="del(fun.id)">删除</a>
+ <div class="list-group mb-sm">
+   <div class="list-group-item">
+      <table class="wd-wide">
+         <tbody>
+            <tr>
+               <td class="wd-sm hidden-xs hidden-sm">
+                  <div class="ph">
+                     <p class="m0"><a class="pull-left" ng-if="fun.type!=4" href="javascript:;" ng-click="goFunctionPage(fun)">{{fun.name}}</a> {{fun.type==4?fun.name:""}}
+                     <div ng-switch="fun.type">
+                     <span  ng-switch-when="1" class="label bg-green-light ml-lg pull-left">目录</span> 
+                     <span  ng-switch-when="2" class="label bg-danger-light  ml-lg pull-left">功能</span> 
+                     <span  ng-switch-when="3" class="label bg-warning-light ml-lg pull-left">特殊权限</span>
+                     <span  ng-switch-when="4" class="label bg-purple-light ml-lg pull-left">按钮</span>
+                     </div> 
+                     </p>
+                  </div>
+               </td>
+               
+               <!-- <td class="wd-xs hidden-xs hidden-sm">
+                  <div class="ph">
+                     <p class="m0 text-muted">
+                      <a href="javascript:;" ng-click="edit(fun.id)">编辑</a></p>
+                  </div>
+               </td> -->
+               <td class="wd-xs hidden-xs hidden-sm">
+                  <div class="ph">
+                     <p class="m0 text-muted  text-right">
+                  <a href="javascript:;" ng-click="edit(fun.id)"><em class="fa fa-edit"></em></a>
+                  <a href="javascript:;" ng-click="del(fun)"><em class="fa fa-trash-o ml-lg"></em></a>
+                    <!--  <button type="button" class="btn btn-info bg-info-light btn-sm"  ng-click="del(fun)">编辑</button>
+                     <button type="button" class="btn btn-danger bg-danger-light btn-sm ml-sm"  ng-click="del(fun)">删除</button> -->
+                     <!--  <a href="javascript:;" ng-click="del(fun)">删除</a> -->
+                      </p>
+                  </div>
+               </td>
+              
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>		
+												
 										</div>
 									</div>
+									
 									<div class="panel-footer">
 										<span ng-repeat="foot in footList"> /<a
 											href="javascript:void(0)" ng-click="goFunctionPage(foot)">{{foot.name}}</a>
@@ -54,88 +100,15 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					
-			<div class="row">
-					 	
-					 	<div ng-repeat="pan in functions" class="col-lg-4" ng-init="func=pan">
-					 			<div id="function{{pan.id}}" class="panel"  ng-controller="functionpanelController">
-					 				 <div ng-class="{'panel-heading-collapsed':panelDemo}" class="panel-heading">
-							           		{{pan.name}}
-							           		<a href="javascript:;" ng-click="edit(pan.id)">编辑</a>
-											<a href="javascript:;" ng-click="del(pan.id)">删除</a>
-								         <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" ></paneltool>
-							         </div>
-							         <div uib-collapse="function{{pan.id}}" class="panel-wrapper">
-							         	<div class="panel-body" style="min-height: 300px;">
-                 							<div ng-repeat="fun in funcList" class="col-sm-12 animate-repeat">	
-                 								<a ng-if="fun.type!=4" href="javascript:;" ng-click="goFunctionPage(fun)">{{fun.name}}</a>
-														{{fun.type==4?fun.name:""}}
-												<a href="javascript:;" ng-click="edit(fun.id)">编辑</a>
-												<a href="javascript:;" ng-click="del(fun.id)">删除</a>
-											</div>
-							            </div>
-							            <div class="panel-footer">
-							            <span ng-repeat="foot in footList">
-							            /<a  href="javascript:void(0)" ng-click="goFunctionPage(foot)">{{foot.name}}</a>
-							            </span>
-							            
-							            </div>
-							         </div> 
-							         
-					 			</div>
-					 			
-					 		
-					 	</div>
-					 	
-					 </div>	
+						</div>
+					</div>			
+
 						
 						
 						
 						
-		   </div>
-					
-					
-			<div class="row">
-					 	
-					 	<div ng-repeat="pan in functions" class="col-lg-4" ng-init="func=pan">
-					 			<div id="function{{pan.id}}" class="panel"  ng-controller="functionpanelController">
-					 				 <div ng-class="{'panel-heading-collapsed':panelDemo}" class="panel-heading">
-							           		{{pan.name}}
-							           		<a href="javascript:;" ng-click="add(pan.id)">新增</a>
-							           		<a href="javascript:;" ng-click="edit(pan.id)">编辑</a>
-											<a href="javascript:;" ng-click="del(pan)">删除</a>
-								         <paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss" ></paneltool>
-							         </div>
-							         <div uib-collapse="function{{pan.id}}" class="panel-wrapper">
-							         	<div class="panel-body" style="min-height: 300px;">
-                 							<div ng-repeat="fun in funcList" class="col-sm-12 animate-repeat">	
-                 								<a ng-if="fun.type!=4" href="javascript:;" ng-click="goFunctionPage(fun)">{{fun.name}}</a>
-														{{fun.type==4?fun.name:""}}
-												<a href="javascript:;" ng-click="edit(fun.id)">编辑</a>
-												<a href="javascript:;" ng-click="del(fun)">删除</a>
-											</div>
-							            </div>
-							            <div class="panel-footer">
-							            <span ng-repeat="foot in footList">
-							            /<a  href="javascript:void(0)" ng-click="goFunctionPage(foot)">{{foot.name}}</a>
-							            </span>
-							            
-							            </div>
-							         </div> 
-							         
-					 			</div>
-					 			
-					 		
-					 	</div>
-					 	
-					 </div>	
-						
-						
-						
-						
-		   </div>
-				</div>
+		   <!-- </div> -->
+				<!-- </div> -->
 			</div>
 		</div>
 	</div>

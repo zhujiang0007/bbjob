@@ -82,7 +82,7 @@ public class LoginService implements UserDetailsService {
 			}
 			Example example1=new Example(SysRoleFunction.class);
 			Example.Criteria c1=example1.createCriteria();
-			c.andIn("roleId", roleIds);
+			c1.andIn("roleId", roleIds);
 			List<SysRoleFunction> roleFunList=this.sysRoleFunctionMapper.selectByExample(example1);
 			if(roleFunList.size()>0){
 				for(SysRoleFunction rolefun:roleFunList){

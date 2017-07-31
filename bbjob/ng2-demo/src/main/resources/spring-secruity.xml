@@ -53,7 +53,6 @@
 	    <property name="service" ref="functionServiceImpl"></property>
 	    <property name="roleList" >
 	    	<array>
-	    		<value>2</value>
 	    		<value>3</value>
 	    		<value>1</value>    		
 	    	</array>

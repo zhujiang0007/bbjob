@@ -31,7 +31,10 @@
 									'vendor/Flot/jquery.flot.time.js',
 									'vendor/Flot/jquery.flot.categories.js',
 									'vendor/flot-spline/js/jquery.flot.spline.min.js' ],
-							'filestyle' : [ 'vendor/bootstrap-filestyle/src/bootstrap-filestyle.js' ]
+							'filestyle' : [ 'vendor/bootstrap-filestyle/src/bootstrap-filestyle.js' ],
+							'html.sortable' : [ 'vendor/html.sortable/js/html.sortable.js',
+								'vendor/html.sortable/js/html.sortable.angular.js'
+								]
 						// 过度动画相关
 						},
 						// Angular based script (use the right module name)
@@ -199,7 +202,8 @@
 									files: [
 										'js/modules/controllers/sys/service/sysfunction.service.js',
 										'js/modules/controllers/sys/purview/functionpanel.controller.js',
-										'js/modules/controllers/sys/purview/syspurview.controller.js'
+										'js/modules/controllers/sys/purview/syspurview.controller.js',
+										'js/modules/paneltool/portlet.directive.js'
 									]
 								},
 								{

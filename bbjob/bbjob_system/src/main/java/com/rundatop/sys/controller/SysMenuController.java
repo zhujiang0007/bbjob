@@ -29,7 +29,7 @@ public class SysMenuController extends SecurityController{
 	@Resource
 	private IFunctionService functionService;
 	@RequestMapping(value="menu",method=RequestMethod.GET)
-	public List<SysFunction> getMenus(@RequestParam(defaultValue="0")String pid) throws BizException{
+	public List<SysFunction> getMenus(@RequestParam(defaultValue="0")Integer pid) throws BizException{
 		SysUser user= (SysUser) getCurrentUser();
 		if(user.getUserType()==null)
 			throw new BizException("用户类型异常，请联系管理员");

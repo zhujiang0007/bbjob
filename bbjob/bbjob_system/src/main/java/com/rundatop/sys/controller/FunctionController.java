@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rundatop.core.exception.BizException;
 import com.rundatop.sys.dto.FunctionTreeEntity;
 import com.rundatop.sys.model.SysFunction;
-import com.rundatop.sys.model.SysRole;
 import com.rundatop.sys.service.IFunctionService;
 import com.rundatop.sys.service.IUserFunctionService;
 
@@ -47,7 +46,7 @@ public class FunctionController {
 	}
 	@RequestMapping(value="tree/{pid}",method=RequestMethod.GET)
 	public List<FunctionTreeEntity> getFunctionTree(@PathVariable("pid") Integer pid){		
-		return functionService.selectFunctionTreeByPid(pid+"");
+		return functionService.selectFunctionTreeByPid(pid);
 	}
 	@RequestMapping(value="check",method=RequestMethod.GET)
 	public int checkPermissionCode(String permissionCode,Integer id) throws BizException{
@@ -69,13 +68,13 @@ public class FunctionController {
 		return "保存成功";
 	}
 	@RequestMapping(method=RequestMethod.PATCH)
-	public String editUser(@RequestBody SysFunction sysFunction){
+	public String editFunction(@RequestBody SysFunction sysFunction){
 		functionService.updateNotNull(sysFunction);
 		return "修改成功！";
 	}
 	@RequestMapping(method=RequestMethod.DELETE)
-	public String deleteUser(Integer functionId){
-		functionService.delete(functionId);
+	public String deleteFunction(Integer id){
+		functionService.delete(id);
 		return "删除成功";
 	}
 	@RequestMapping(method=RequestMethod.GET)

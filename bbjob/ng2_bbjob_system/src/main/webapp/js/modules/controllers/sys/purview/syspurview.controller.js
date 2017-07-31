@@ -5,7 +5,6 @@
 	
 })();
 
-
 (function() {
 	'use strict';
 
@@ -24,11 +23,23 @@
 		
 		$scope.purview = {};
 		$scope.functions = [];
-		sysfunctionService.getFunctions(0).then(function(data){
-			$scope.functions=data;
-			$scope.functions.push({id:null,name:"登录权限"});
-		})
+		init();
+		function init(){
+			sysfunctionService.getFunctions(0).then(function(data){
+				$scope.functions=data;
+				$scope.functions.push({id:null,name:"登录权限"});
+			})
+		}
 		
+		
+		$scope.sortableOptions = {
+	              placeholder: '<div class="col-lg-4" style="height:400px;"><div></div></div>',
+	              forcePlaceholderSize: true
+	          };
+        $scope.sortableCallback = function (sourceModel, destModel, start, end) {
+            console.log(start + ' -> ' + end);
+          };
+            
 		
 		$scope.doesNotExist=function(value,id){
 			return sysfunctionService.checkPerCodeExists(value,id);
@@ -44,6 +55,7 @@
 					type:2,
 					openType:1,
 					pId:pId,
+					isVisible:1,
 					remark: null
 			};//弹窗模板
 			ngDialog
@@ -98,6 +110,10 @@
 	            	  });
 						function delSuccess(data){			
 		      					toaster.pop('success', "提示", "删除成功！");
+		      					$scope.$broadcast("delSuccess",func);
+		      					if(func.pId==0){
+		      						init();
+		      					}
 						}
 						
 						
@@ -110,13 +126,25 @@
 			
 		//save
 		$scope.save = function(type){
-			var data= $scope.newTpls;
+			var func= $scope.newTpls;
+			function saveSuccess(data){
+				toaster.pop('success', "提示", "保存成功！");
+				ngDialog.close();
+				$scope.$broadcast("saveSuccess",func);
+				if(func.pId==0){
+					init();
+				}
+			}
+
+			function saveFailure(data){
+				toaster.pop('error', "提示",data);
+			}
 			if(type){
 				//change
-				sysfunctionService.update(data).then(saveSuccess,saveFailure);
+				sysfunctionService.update(func).then(saveSuccess,saveFailure);
 			}else{
 				//add
-				sysfunctionService.add(data).then(saveSuccess,saveFailure);
+				sysfunctionService.add(func).then(saveSuccess,saveFailure);
 			}
 		}
 		//关闭dialog
@@ -128,6 +156,9 @@
 			toaster.pop('success', "提示", "保存成功！");
 			ngDialog.close();
 			$scope.$broadcast("saveSuccess",data);
+			if(data.pId==0){
+				$scope.functions.push(data);
+			}
 		}
 
 		function saveFailure(data){

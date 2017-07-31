@@ -15,7 +15,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="com.rundatop.**.service"/>
-
+	<context:component-scan base-package="com.rundatop.**.listener"/>
      <bean id="propertyConfigurer" name="propertyConfigurer"
 		class="com.rundatop.core.spring.config.ExtendedPropertyPlaceholderConfigurer">
 		<property name="locations">

@@ -8,5 +8,5 @@ import org.springframework.security.core.GrantedAuthority;
 import com.rundatop.sys.model.SysFunction;
 
 public interface IMenuService {
-	List<SysFunction> selectFuncByUserAuthority(String pid, Collection<? extends GrantedAuthority> authorties);
+	List<SysFunction> selectFuncByUserAuthority(Integer pid, Collection<? extends GrantedAuthority> authorties);
 }

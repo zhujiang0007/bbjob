@@ -21,7 +21,7 @@ public class MenuServiceImpl implements IMenuService{
 	private IFunctionService functionService;
 	
 	@Override
-	public List<SysFunction> selectFuncByUserAuthority(String pid, Collection<? extends GrantedAuthority> authorties) {
+	public List<SysFunction> selectFuncByUserAuthority(Integer pid, Collection<? extends GrantedAuthority> authorties) {
 		List<String> authortiesString=AuthorityUtils.authorties2String(authorties);
 		Example example=new Example(SysFunction.class);
 		Example.Criteria criteria= example.createCriteria();
